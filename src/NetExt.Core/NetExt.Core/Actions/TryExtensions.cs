@@ -1,3 +1,5 @@
+using NetExt.Core.Require;
+
 namespace NetExt.Core.Actions;
 
 public static class TryExtensions
@@ -8,10 +10,7 @@ public static class TryExtensions
                                                 Action? finallyAction = null,
                                                 Func<Task>? finallyActionAsync = null)
     {
-        if (action == null)
-        {
-            throw new ArgumentNullException(nameof(action));
-        }
+        RequireExt.ThrowIfNull(action);
 
         var result = default(T);
         try
@@ -65,10 +64,7 @@ public static class TryExtensions
                                Action<Exception>? catchAction = null,
                                Action? finallyAction = null)
     {
-        if (action == null)
-        {
-            throw new ArgumentNullException(nameof(action));
-        }
+        RequireExt.ThrowIfNull(action);
         
         var result = default(T);
         try
