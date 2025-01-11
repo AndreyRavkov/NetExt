@@ -1,2 +1,2 @@
-# NetExt
+# NetExt.Core
 .net extensions
