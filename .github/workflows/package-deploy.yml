@@ -47,10 +47,11 @@ jobs:
             6.x.x
 
       - name: Pack NuGet package
-        run: dotnet pack $PROJ_PATH --configuration Release --output ./nupkg
+        working-directory: ${{ github.workspace }}/src
+        run: dotnet pack ${{ github.workspace }}/$PROJ_PATH -c Release --output ${{ github.workspace }}/nupkg
 
       - name: Push NuGet package
         run: |
-          dotnet nuget push ./nupkg/*.nupkg \
+          dotnet nuget push ${{ github.workspace }}/nupkg/*.nupkg \
             --api-key ${{ secrets.NUGET_API_KEY }} \
             --source $NUGET_SOURCE
