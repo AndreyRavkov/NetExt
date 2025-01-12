@@ -7,7 +7,7 @@
     <TargetFrameworks>net6.0;net7.0;net8.0;net9.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>NetExt.Core</PackageId>
-    <Version>0.0.1-beta</Version>
+    <Version>0.0.1</Version>
     <Copyright>Andrey Ravkov</Copyright>
     <Authors>Andrey Ravkov and other contributors</Authors>
     <Description>Simple extensions</Description>
