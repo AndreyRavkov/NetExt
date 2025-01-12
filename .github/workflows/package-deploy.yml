@@ -48,7 +48,6 @@ jobs:
             6.x.x
 
       - name: Pack NuGet package
-        working-directory: $PROJ_PATH
         run: dotnet pack $PROJ_PATH -c Release --output ${{ github.workspace }}/nupkg
 
       - name: Push NuGet package
