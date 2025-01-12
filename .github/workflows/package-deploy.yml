@@ -2,7 +2,9 @@ name: Deploy package to nuget
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - "feature/init"
+      - "main"
   workflow_dispatch:
 
 permissions:
