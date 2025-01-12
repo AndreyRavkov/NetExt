@@ -16,12 +16,7 @@ public static class RequireExt
     public static void ThrowIfNull(
         object value,
         bool useRequireException = false,
-        #if NET6_0
-        [CallerArgumentExpression("value")] string? objectName = null,
-        #endif
-        #if NET7_0_OR_GREATER
         [CallerArgumentExpression(nameof(value))] string? objectName = null,
-        #endif
         string errorMessage = "")
     {
         if (value == null)

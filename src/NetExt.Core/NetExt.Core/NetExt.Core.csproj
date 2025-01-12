@@ -1,14 +1,34 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net6.0;net7.0;net8.0;net9.0</TargetFrameworks>
-    <PackageId>NetExt.Core</PackageId>
-    <Version>0.0.1</Version>
-    <Authors>Your Name</Authors>
-    <Description>Simple extensions</Description>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <LangVersion>latest</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <TargetFrameworks>net6.0;net7.0;net8.0;net9.0</TargetFrameworks>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>NetExt.Core</PackageId>
+    <Version>0.0.1</Version>
+    <Copyright>Andrey Ravkov</Copyright>
+    <Authors>Andrey Ravkov and other contributors</Authors>
+    <Description>Simple extensions</Description>
+    <PackageProjectUrl>https://github.com/AndreyRavkov/NetExt</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/AndreyRavkov/NetExt</RepositoryUrl>
+    <PackageTags>
+      async;await;multiple;tasks;task;values;parallel;try extension;extensions;
+      to UnixTime;from UnixTime;require;requires;strings extensions;MayBe pattern;Results pattern
+    </PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReleaseNotes>
+      v0.0.1: init create
+    </PackageReleaseNotes>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\..\LICENSE" Pack="true" PackagePath="\" />
+    <None Include="..\..\..\icon.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
 
 </Project>

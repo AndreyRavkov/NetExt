@@ -2,9 +2,9 @@ using NetExt.Core.Require;
 
 namespace NetExt.Core.Actions;
 
-public static class TryExtensions
+public static class TryExt
 {
-    public static async Task<T?> TryExtAsync<T>(Func<Task<T?>> action,
+    public static async Task<T?> ExecuteAsync<T>(Func<Task<T?>> action,
                                                 Action<Exception>? catchAction = null,
                                                 Func<Exception, Task>? catchActionAsync = null,
                                                 Action? finallyAction = null,
@@ -41,13 +41,13 @@ public static class TryExtensions
         return result;
     }
     
-    public static Task TryExtAsync(Func<Task> action,
+    public static Task ExecuteAsync(Func<Task> action,
                                    Action<Exception>? catchAction = null,
                                    Func<Exception, Task>? catchActionAsync = null,
                                    Action? finallyAction = null,
                                    Func<Task>? finallyActionAsync = null)
     {
-        return TryExtAsync(
+        return ExecuteAsync(
             async () =>
             {
                 await action().ConfigureAwait(false);
@@ -60,7 +60,7 @@ public static class TryExtensions
         );
     }
     
-    public static T? TryExt<T>(Func<T> action,
+    public static T? Execute<T>(Func<T> action,
                                Action<Exception>? catchAction = null,
                                Action? finallyAction = null)
     {
@@ -87,11 +87,11 @@ public static class TryExtensions
         return result;
     }
     
-    public static void TryExt(Action action,
+    public static void Execute(Action action,
                               Action<Exception>? catchAction = null,
                               Action? finallyAction = null)
     {
-        TryExt(
+        Execute(
             () =>
             {
                 action();
