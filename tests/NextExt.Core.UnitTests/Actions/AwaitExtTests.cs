@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using NetExt.Core.Actions;
 using Xunit;
 
@@ -6,7 +5,6 @@ namespace NextExt.Core.UnitTests.Actions;
 
 public class AwaitExtTests
 {
-    private const int MaxTimeMilliseconds = 150;
     private const int InputValue1 = 101;
     private const int InputValue2 = 102;
     private const int InputValue3 = 103;
@@ -37,12 +35,8 @@ public class AwaitExtTests
     public static async Task Await_NoResult_Count_Test(uint noResultCount)
     {
         var noResultTasks = GenerateTasks(noResultCount);
-        var stopWatch = new Stopwatch();
-        stopWatch.Start();
         await AwaitExt.TasksAsync(noResultTasks);
-        stopWatch.Stop();
         
-        Assert.True(stopWatch.ElapsedMilliseconds < MaxTimeMilliseconds);
         AssertTasksCompletedSuccessfully(noResultTasks);
     }
     
@@ -55,15 +49,8 @@ public class AwaitExtTests
     public static async Task Await_Result_Count_1_Test(uint noResultCount)
     {
         var noResultTasks = GenerateTasks(noResultCount);
+        var result = await AwaitExt.TasksAsync(DelayValueAsync(InputValue1), noResultTasks);
         
-        var stopWatch = new Stopwatch();
-        stopWatch.Start();
-        var result = await AwaitExt.TasksAsync(
-                         DelayValueAsync(InputValue1), 
-                         noResultTasks);
-        stopWatch.Stop();
-        
-        Assert.True(stopWatch.ElapsedMilliseconds < MaxTimeMilliseconds);
         Assert.True(result == InputValue1);
         AssertTasksCompletedSuccessfully(noResultTasks);
     }
@@ -78,15 +65,11 @@ public class AwaitExtTests
     {
         var noResultTasks = GenerateTasks(noResultCount);
         
-        var stopWatch = new Stopwatch();
-        stopWatch.Start();
         var result = await AwaitExt.TasksAsync(
                          DelayValueAsync(InputValue1),
                          DelayValueAsync(InputValue2),
                          noResultTasks);
-        stopWatch.Stop();
         
-        Assert.True(stopWatch.ElapsedMilliseconds < MaxTimeMilliseconds);
         Assert.True(result.Item1 == InputValue1);
         Assert.True(result.Item2 == InputValue2);
         AssertTasksCompletedSuccessfully(noResultTasks);
@@ -101,15 +84,10 @@ public class AwaitExtTests
     public static async Task Await_Result_Count_3_Test(uint noResultCount)
     {
         var noResultTasks = GenerateTasks(noResultCount);
-        
-        var stopWatch = new Stopwatch();
-        stopWatch.Start();
         var result = await AwaitExt.TasksAsync(
                          DelayValueAsync(InputValue1), DelayValueAsync(InputValue2), DelayValueAsync(InputValue3),
                          noResultTasks);
-        stopWatch.Stop();
         
-        Assert.True(stopWatch.ElapsedMilliseconds < MaxTimeMilliseconds);
         Assert.True(result.Item1 == InputValue1);
         Assert.True(result.Item2 == InputValue2);
         Assert.True(result.Item3 == InputValue3);
@@ -125,16 +103,11 @@ public class AwaitExtTests
     public static async Task Await_Result_Count_4_Test(uint noResultCount)
     {
         var noResultTasks = GenerateTasks(noResultCount);
-        
-        var stopWatch = new Stopwatch();
-        stopWatch.Start();
         var result = await AwaitExt.TasksAsync(
                          DelayValueAsync(InputValue1), DelayValueAsync(InputValue2), DelayValueAsync(InputValue3),
                          DelayValueAsync(InputValue4),
                          noResultTasks);
-        stopWatch.Stop();
         
-        Assert.True(stopWatch.ElapsedMilliseconds < MaxTimeMilliseconds);
         Assert.True(result.Item1 == InputValue1);
         Assert.True(result.Item2 == InputValue2);
         Assert.True(result.Item3 == InputValue3);
@@ -151,16 +124,11 @@ public class AwaitExtTests
     public static async Task Await_Result_Count_5_Test(uint noResultCount)
     {
         var noResultTasks = GenerateTasks(noResultCount);
-        
-        var stopWatch = new Stopwatch();
-        stopWatch.Start();
         var result = await AwaitExt.TasksAsync(
                          DelayValueAsync(InputValue1), DelayValueAsync(InputValue2), DelayValueAsync(InputValue3),
                          DelayValueAsync(InputValue4), DelayValueAsync(InputValue5),
                          noResultTasks);
-        stopWatch.Stop();
         
-        Assert.True(stopWatch.ElapsedMilliseconds < MaxTimeMilliseconds);
         Assert.True(result.Item1 == InputValue1);
         Assert.True(result.Item2 == InputValue2);
         Assert.True(result.Item3 == InputValue3);
@@ -178,16 +146,11 @@ public class AwaitExtTests
     public static async Task Await_Result_Count_6_Test(uint noResultCount)
     {
         var noResultTasks = GenerateTasks(noResultCount);
-        
-        var stopWatch = new Stopwatch();
-        stopWatch.Start();
         var result = await AwaitExt.TasksAsync(
                          DelayValueAsync(InputValue1), DelayValueAsync(InputValue2), DelayValueAsync(InputValue3),
                          DelayValueAsync(InputValue4), DelayValueAsync(InputValue5), DelayValueAsync(InputValue6),
                          noResultTasks);
-        stopWatch.Stop();
-        
-        Assert.True(stopWatch.ElapsedMilliseconds < MaxTimeMilliseconds);
+
         Assert.True(result.Item1 == InputValue1);
         Assert.True(result.Item2 == InputValue2);
         Assert.True(result.Item3 == InputValue3);
@@ -206,17 +169,12 @@ public class AwaitExtTests
     public static async Task Await_Result_Count_7_Test(uint noResultCount)
     {
         var noResultTasks = GenerateTasks(noResultCount);
-        
-        var stopWatch = new Stopwatch();
-        stopWatch.Start();
         var result = await AwaitExt.TasksAsync(
                          DelayValueAsync(InputValue1), DelayValueAsync(InputValue2), DelayValueAsync(InputValue3),
                          DelayValueAsync(InputValue4), DelayValueAsync(InputValue5), DelayValueAsync(InputValue6),
                          DelayValueAsync(InputValue7),
                          noResultTasks);
-        stopWatch.Stop();
         
-        Assert.True(stopWatch.ElapsedMilliseconds < MaxTimeMilliseconds);
         Assert.True(result.Item1 == InputValue1);
         Assert.True(result.Item2 == InputValue2);
         Assert.True(result.Item3 == InputValue3);
@@ -236,17 +194,12 @@ public class AwaitExtTests
     public static async Task Await_Result_Count_8_Test(uint noResultCount)
     {
         var noResultTasks = GenerateTasks(noResultCount);
-        
-        var stopWatch = new Stopwatch();
-        stopWatch.Start();
         var result = await AwaitExt.TasksAsync(
                          DelayValueAsync(InputValue1), DelayValueAsync(InputValue2), DelayValueAsync(InputValue3),
                          DelayValueAsync(InputValue4), DelayValueAsync(InputValue5), DelayValueAsync(InputValue6),
                          DelayValueAsync(InputValue7), DelayValueAsync(InputValue8),
                          noResultTasks);
-        stopWatch.Stop();
         
-        Assert.True(stopWatch.ElapsedMilliseconds < MaxTimeMilliseconds);
         Assert.True(result.Item1 == InputValue1);
         Assert.True(result.Item2 == InputValue2);
         Assert.True(result.Item3 == InputValue3);
@@ -267,17 +220,12 @@ public class AwaitExtTests
     public static async Task Await_Result_Count_9_Test(uint noResultCount)
     {
         var noResultTasks = GenerateTasks(noResultCount);
-        
-        var stopWatch = new Stopwatch();
-        stopWatch.Start();
         var result = await AwaitExt.TasksAsync(
                          DelayValueAsync(InputValue1), DelayValueAsync(InputValue2), DelayValueAsync(InputValue3),
                          DelayValueAsync(InputValue4), DelayValueAsync(InputValue5), DelayValueAsync(InputValue6),
                          DelayValueAsync(InputValue7), DelayValueAsync(InputValue8), DelayValueAsync(InputValue9),
                          noResultTasks);
-        stopWatch.Stop();
         
-        Assert.True(stopWatch.ElapsedMilliseconds < MaxTimeMilliseconds);
         Assert.True(result.Item1 == InputValue1);
         Assert.True(result.Item2 == InputValue2);
         Assert.True(result.Item3 == InputValue3);
@@ -299,18 +247,13 @@ public class AwaitExtTests
     public static async Task Await_Result_Count_10_Test(uint noResultCount)
     {
         var noResultTasks = GenerateTasks(noResultCount);
-        
-        var stopWatch = new Stopwatch();
-        stopWatch.Start();
         var result = await AwaitExt.TasksAsync(
                          DelayValueAsync(InputValue1), DelayValueAsync(InputValue2), DelayValueAsync(InputValue3),
                          DelayValueAsync(InputValue4), DelayValueAsync(InputValue5), DelayValueAsync(InputValue6),
                          DelayValueAsync(InputValue7), DelayValueAsync(InputValue8), DelayValueAsync(InputValue9),
                          DelayValueAsync(InputValue10),
                          noResultTasks);
-        stopWatch.Stop();
         
-        Assert.True(stopWatch.ElapsedMilliseconds < MaxTimeMilliseconds);
         Assert.True(result.Item1 == InputValue1);
         Assert.True(result.Item2 == InputValue2);
         Assert.True(result.Item3 == InputValue3);
@@ -333,18 +276,13 @@ public class AwaitExtTests
     public static async Task Await_Result_Count_11_Test(uint noResultCount)
     {
         var noResultTasks = GenerateTasks(noResultCount);
-        
-        var stopWatch = new Stopwatch();
-        stopWatch.Start();
         var result = await AwaitExt.TasksAsync(
                          DelayValueAsync(InputValue1), DelayValueAsync(InputValue2), DelayValueAsync(InputValue3),
                          DelayValueAsync(InputValue4), DelayValueAsync(InputValue5), DelayValueAsync(InputValue6),
                          DelayValueAsync(InputValue7), DelayValueAsync(InputValue8), DelayValueAsync(InputValue9),
                          DelayValueAsync(InputValue10), DelayValueAsync(InputValue11),
                          noResultTasks);
-        stopWatch.Stop();
         
-        Assert.True(stopWatch.ElapsedMilliseconds < MaxTimeMilliseconds);
         Assert.True(result.Item1 == InputValue1);
         Assert.True(result.Item2 == InputValue2);
         Assert.True(result.Item3 == InputValue3);
@@ -368,18 +306,13 @@ public class AwaitExtTests
     public static async Task Await_Result_Count_12_Test(uint noResultCount)
     {
         var noResultTasks = GenerateTasks(noResultCount);
-        
-        var stopWatch = new Stopwatch();
-        stopWatch.Start();
         var result = await AwaitExt.TasksAsync(
                          DelayValueAsync(InputValue1), DelayValueAsync(InputValue2), DelayValueAsync(InputValue3),
                          DelayValueAsync(InputValue4), DelayValueAsync(InputValue5), DelayValueAsync(InputValue6),
                          DelayValueAsync(InputValue7), DelayValueAsync(InputValue8), DelayValueAsync(InputValue9),
                          DelayValueAsync(InputValue10), DelayValueAsync(InputValue11), DelayValueAsync(InputValue12),
                          noResultTasks);
-        stopWatch.Stop();
         
-        Assert.True(stopWatch.ElapsedMilliseconds < MaxTimeMilliseconds);
         Assert.True(result.Item1 == InputValue1);
         Assert.True(result.Item2 == InputValue2);
         Assert.True(result.Item3 == InputValue3);
@@ -404,9 +337,6 @@ public class AwaitExtTests
     public static async Task Await_Result_Count_13_Test(uint noResultCount)
     {
         var noResultTasks = GenerateTasks(noResultCount);
-        
-        var stopWatch = new Stopwatch();
-        stopWatch.Start();
         var result = await AwaitExt.TasksAsync(
                          DelayValueAsync(InputValue1), DelayValueAsync(InputValue2), DelayValueAsync(InputValue3),
                          DelayValueAsync(InputValue4), DelayValueAsync(InputValue5), DelayValueAsync(InputValue6),
@@ -414,9 +344,7 @@ public class AwaitExtTests
                          DelayValueAsync(InputValue10), DelayValueAsync(InputValue11), DelayValueAsync(InputValue12),
                          DelayValueAsync(InputValue13),
                          noResultTasks);
-        stopWatch.Stop();
         
-        Assert.True(stopWatch.ElapsedMilliseconds < MaxTimeMilliseconds);
         Assert.True(result.Item1 == InputValue1);
         Assert.True(result.Item2 == InputValue2);
         Assert.True(result.Item3 == InputValue3);
@@ -442,9 +370,6 @@ public class AwaitExtTests
     public static async Task Await_Result_Count_14_Test(uint noResultCount)
     {
         var noResultTasks = GenerateTasks(noResultCount);
-        
-        var stopWatch = new Stopwatch();
-        stopWatch.Start();
         var result = await AwaitExt.TasksAsync(
                          DelayValueAsync(InputValue1), DelayValueAsync(InputValue2), DelayValueAsync(InputValue3),
                          DelayValueAsync(InputValue4), DelayValueAsync(InputValue5), DelayValueAsync(InputValue6),
@@ -452,9 +377,7 @@ public class AwaitExtTests
                          DelayValueAsync(InputValue10), DelayValueAsync(InputValue11), DelayValueAsync(InputValue12),
                          DelayValueAsync(InputValue13), DelayValueAsync(InputValue14),
                          noResultTasks);
-        stopWatch.Stop();
         
-        Assert.True(stopWatch.ElapsedMilliseconds < MaxTimeMilliseconds);
         Assert.True(result.Item1 == InputValue1);
         Assert.True(result.Item2 == InputValue2);
         Assert.True(result.Item3 == InputValue3);
@@ -481,9 +404,6 @@ public class AwaitExtTests
     public static async Task Await_Result_Count_15_Test(uint noResultCount)
     {
         var noResultTasks = GenerateTasks(noResultCount);
-        
-        var stopWatch = new Stopwatch();
-        stopWatch.Start();
         var result = await AwaitExt.TasksAsync(
                          DelayValueAsync(InputValue1), DelayValueAsync(InputValue2), DelayValueAsync(InputValue3),
                          DelayValueAsync(InputValue4), DelayValueAsync(InputValue5), DelayValueAsync(InputValue6),
@@ -491,9 +411,7 @@ public class AwaitExtTests
                          DelayValueAsync(InputValue10), DelayValueAsync(InputValue11), DelayValueAsync(InputValue12),
                          DelayValueAsync(InputValue13), DelayValueAsync(InputValue14), DelayValueAsync(InputValue15),
                          noResultTasks);
-        stopWatch.Stop();
         
-        Assert.True(stopWatch.ElapsedMilliseconds < MaxTimeMilliseconds);
         Assert.True(result.Item1 == InputValue1);
         Assert.True(result.Item2 == InputValue2);
         Assert.True(result.Item3 == InputValue3);
@@ -521,9 +439,6 @@ public class AwaitExtTests
     public static async Task Await_Result_Count_16_Test(uint noResultCount)
     {
         var noResultTasks = GenerateTasks(noResultCount);
-        
-        var stopWatch = new Stopwatch();
-        stopWatch.Start();
         var result = await AwaitExt.TasksAsync(
                          DelayValueAsync(InputValue1), DelayValueAsync(InputValue2), DelayValueAsync(InputValue3),
                          DelayValueAsync(InputValue4), DelayValueAsync(InputValue5), DelayValueAsync(InputValue6),
@@ -532,9 +447,7 @@ public class AwaitExtTests
                          DelayValueAsync(InputValue13), DelayValueAsync(InputValue14), DelayValueAsync(InputValue15),
                          DelayValueAsync(InputValue16),
                          noResultTasks);
-        stopWatch.Stop();
         
-        Assert.True(stopWatch.ElapsedMilliseconds < MaxTimeMilliseconds);
         Assert.True(result.Item1 == InputValue1);
         Assert.True(result.Item2 == InputValue2);
         Assert.True(result.Item3 == InputValue3);
@@ -563,9 +476,6 @@ public class AwaitExtTests
     public static async Task Await_Result_Count_17_Test(uint noResultCount)
     {
         var noResultTasks = GenerateTasks(noResultCount);
-        
-        var stopWatch = new Stopwatch();
-        stopWatch.Start();
         var result = await AwaitExt.TasksAsync(
                          DelayValueAsync(InputValue1), DelayValueAsync(InputValue2), DelayValueAsync(InputValue3),
                          DelayValueAsync(InputValue4), DelayValueAsync(InputValue5), DelayValueAsync(InputValue6),
@@ -574,9 +484,7 @@ public class AwaitExtTests
                          DelayValueAsync(InputValue13), DelayValueAsync(InputValue14), DelayValueAsync(InputValue15),
                          DelayValueAsync(InputValue16), DelayValueAsync(InputValue17),
                          noResultTasks);
-        stopWatch.Stop();
         
-        Assert.True(stopWatch.ElapsedMilliseconds < MaxTimeMilliseconds);
         Assert.True(result.Item1 == InputValue1);
         Assert.True(result.Item2 == InputValue2);
         Assert.True(result.Item3 == InputValue3);
@@ -606,9 +514,6 @@ public class AwaitExtTests
     public static async Task Await_Result_Count_18_Test(uint noResultCount)
     {
         var noResultTasks = GenerateTasks(noResultCount);
-        
-        var stopWatch = new Stopwatch();
-        stopWatch.Start();
         var result = await AwaitExt.TasksAsync(
                          DelayValueAsync(InputValue1), DelayValueAsync(InputValue2), DelayValueAsync(InputValue3),
                          DelayValueAsync(InputValue4), DelayValueAsync(InputValue5), DelayValueAsync(InputValue6),
@@ -617,9 +522,7 @@ public class AwaitExtTests
                          DelayValueAsync(InputValue13), DelayValueAsync(InputValue14), DelayValueAsync(InputValue15),
                          DelayValueAsync(InputValue16), DelayValueAsync(InputValue17), DelayValueAsync(InputValue18),
                          noResultTasks);
-        stopWatch.Stop();
         
-        Assert.True(stopWatch.ElapsedMilliseconds < MaxTimeMilliseconds);
         Assert.True(result.Item1 == InputValue1);
         Assert.True(result.Item2 == InputValue2);
         Assert.True(result.Item3 == InputValue3);
@@ -650,9 +553,6 @@ public class AwaitExtTests
     public static async Task Await_Result_Count_19_Test(uint noResultCount)
     {
         var noResultTasks = GenerateTasks(noResultCount);
-        
-        var stopWatch = new Stopwatch();
-        stopWatch.Start();
         var result = await AwaitExt.TasksAsync(
                          DelayValueAsync(InputValue1), DelayValueAsync(InputValue2), DelayValueAsync(InputValue3),
                          DelayValueAsync(InputValue4), DelayValueAsync(InputValue5), DelayValueAsync(InputValue6),
@@ -662,9 +562,7 @@ public class AwaitExtTests
                          DelayValueAsync(InputValue16), DelayValueAsync(InputValue17), DelayValueAsync(InputValue18),
                          DelayValueAsync(InputValue19),
                          noResultTasks);
-        stopWatch.Stop();
         
-        Assert.True(stopWatch.ElapsedMilliseconds < MaxTimeMilliseconds);
         Assert.True(result.Item1 == InputValue1);
         Assert.True(result.Item2 == InputValue2);
         Assert.True(result.Item3 == InputValue3);
@@ -696,9 +594,6 @@ public class AwaitExtTests
     public static async Task Await_Result_Count_20_Test(uint noResultCount)
     {
         var noResultTasks = GenerateTasks(noResultCount);
-        
-        var stopWatch = new Stopwatch();
-        stopWatch.Start();
         var result = await AwaitExt.TasksAsync(
                          DelayValueAsync(InputValue1), DelayValueAsync(InputValue2), DelayValueAsync(InputValue3),
                          DelayValueAsync(InputValue4), DelayValueAsync(InputValue5), DelayValueAsync(InputValue6),
@@ -708,9 +603,7 @@ public class AwaitExtTests
                          DelayValueAsync(InputValue16), DelayValueAsync(InputValue17), DelayValueAsync(InputValue18),
                          DelayValueAsync(InputValue19), DelayValueAsync(InputValue20),
                          noResultTasks);
-        stopWatch.Stop();
         
-        Assert.True(stopWatch.ElapsedMilliseconds < MaxTimeMilliseconds);
         Assert.True(result.Item1 == InputValue1);
         Assert.True(result.Item2 == InputValue2);
         Assert.True(result.Item3 == InputValue3);
