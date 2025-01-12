@@ -1,9 +1,7 @@
 # NetExt.Core
 This is list of daily-useful .net extensions
 
-Try Extensions
-
-## Namespace: NetExt.Core.Actions
+### Namespace: NetExt.Core.Actions
 
 ### Await Extensions
 The AwaitExt class provides utility methods for efficiently handling multiple asynchronous tasks, including tasks with and without return values. These extensions simplify combining, executing, and awaiting multiple tasks, making it easier to manage complex asynchronous workflows.
@@ -49,10 +47,10 @@ TryExt.Execute(
 await TryExt.ExecuteAsync(...);
 ```
 
-## Namespace: NetExt.Core.Require
+### Namespace: NetExt.Core.Require
 The namespace provides utility methods to enforce object validity and condition checks at runtime. These methods are particularly useful for defensive programming, ensuring that objects meet necessary conditions before proceeding with execution.
 
-## Namespace: NetExt.Core.Models.*
+### Namespace: NetExt.Core.Models.*
 Namespace contains the different models & exceptions:
 
 Models:
@@ -65,13 +63,13 @@ Exceptions:
 * NotFoundException
 * UnAuthorizationException
 
-## Namespace: NetExt.Core.Collections
+### Namespace: NetExt.Core.Collections
 The namespace class provides utility methods for working with collections in a more intuitive and streamlined way. These extensions help convert individual items into various collection types and simplify iteration over collections.
 
 ### ForEach Extension
 The ForEachExt method is an extension for IEnumerable<T> that simplifies iterating over a collection by applying an action to each element. It reduces boilerplate code for loops, making your code cleaner and more expressive.
 
-## Namespace: NetExt.Core.Common
+### Namespace: NetExt.Core.Common
 The namespace class provides a utility method to validate nullable values at runtime. This extension is particularly useful for ensuring required parameters are not null, improving code reliability and reducing the need for repetitive null-checking logic.
 ```csharp
 using NetExt.Core.Collections;
@@ -88,20 +86,36 @@ numbers.ForEachExt(number => Console.WriteLine(number * 2));
 // 10
 ```
 
-## Namespace: NetExt.Core.Enums
+### Namespace: NetExt.Core.Enums
 The namespace provides an extension method for enums, allowing seamless conversion of enum values to their underlying integer representation. This simplifies handling enums in scenarios where integer values are required, such as database storage, serialization, or calculations.
 
 Also, contains **Sort enum** provides a straightforward way to represent sorting directions, commonly used in ordering datasets, database queries, or collections. Its simplicity and clarity make it ideal for scenarios where sorting logic needs to be explicitly defined.
 * ASC: Represents ascending order. Items are sorted from smallest to largest or in lexicographical order (A-Z).
 * DESC: Represents descending order. Items are sorted from largest to smallest or in reverse lexicographical order (Z-A).
 
-## Namespace: NetExt.Core.DateTime
+### Namespace: NetExt.Core.DateTime
 The namespace provides a set of extension methods to enhance the functionality of System.DateTime. These methods simplify common operations like Unix time conversions and specifying the DateTimeKind for DateTime objects.
 
 ### MayBe Struct (Result pattern)
 The `MayBe<T>` struct is a lightweight, readonly wrapper for managing nullable references with enhanced safety and expressiveness. It simplifies handling scenarios where a value may or may not exist, providing built-in methods for validation and error handling.
+```csharp
+interface IRepository
+{
+    Task<MayBe<UserEntity>> GetAsync(int id); 
+}
+...
+MayBe<UserEntity> entity = IRepository.GetAsync(123);
+// check that entity exists or not
+if (entity.Exists)
+{
+    // TBD
+}
 
-## Namespace: NetExt.Core.Strings
+// return entity or throw exception
+var result = entity.AssumeExists("error message");
+```
+
+### Namespace: NetExt.Core.Strings
 The namespace class provides a rich set of extension methods for enhancing string manipulation. These methods simplify common string operations such as trimming, checking for null or empty strings, encoding to Base64, and more, making string handling more efficient and expressive.
 ```csharp
 var stringValue = "some string here";
