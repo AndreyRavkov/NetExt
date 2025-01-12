@@ -7,6 +7,11 @@ on:
       - "main"
   workflow_dispatch:
 
+env:
+  NUGET_SOURCE: https://api.nuget.org/v3/index.json
+  PROJ_PATH: ./src/NetExt.Core/NetExt.Core/NetExt.Core.csproj
+  TESTS_PROJ_PATH: ./tests/NextExt.Core.UnitTests/NextExt.Core.UnitTests.csproj
+
 permissions:
   contents: write
 
@@ -24,10 +29,10 @@ jobs:
             6.x.x
 
       - name: Build Api
-        run: dotnet build ./src/NetExt.Core/NetExt.Core/NetExt.Core.csproj -c Release
+        run: dotnet build $PROJ_PATH -c Release
 
       - name: Run Tests
-        run: dotnet test ./tests/NextExt.Core.UnitTests/NextExt.Core.UnitTests.csproj -c Release
+        run: dotnet test $TESTS_PROJ_PATH -c Release
   
   deploy:
     needs: build
@@ -42,10 +47,10 @@ jobs:
             6.x.x
 
       - name: Pack NuGet package
-        run: dotnet pack --configuration Release --output ./nupkg
+        run: dotnet pack $PROJ_PATH --configuration Release --output ./nupkg
 
       - name: Push NuGet package
         run: |
           dotnet nuget push ./nupkg/*.nupkg \
             --api-key ${{ secrets.NUGET_API_KEY }} \
-            --source https://api.nuget.org/v3/index.json
+            --source $NUGET_SOURCE
