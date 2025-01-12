@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NetExt.Core", "NetExt.Core", "{B82A61ED-A059-4AB5-BF28-738CF14F0928}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetExt.Core", "NetExt.Core\NetExt.Core\NetExt.Core.csproj", "{F6556E77-DB86-43B4-8D58-85FE075880A2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetExt.Core", "NetExt.Core\NetExt.Core.csproj", "{F6556E77-DB86-43B4-8D58-85FE075880A2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_SolutionItems", "_SolutionItems", "{068529ED-8648-41C5-AAF0-094965DF3517}"
 	ProjectSection(SolutionItems) = preProject

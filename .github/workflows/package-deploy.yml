@@ -9,7 +9,7 @@ on:
 
 env:
   NUGET_SOURCE: https://api.nuget.org/v3/index.json
-  PROJ_PATH: ./src/NetExt.Core/NetExt.Core/NetExt.Core.csproj
+  PROJ_PATH: ./src/NetExt.Core/NetExt.Core.csproj
   TESTS_PROJ_PATH: ./tests/NextExt.Core.UnitTests/NextExt.Core.UnitTests.csproj
 
 permissions:
@@ -38,6 +38,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: | 
@@ -47,8 +48,8 @@ jobs:
             6.x.x
 
       - name: Pack NuGet package
-        working-directory: ${{ github.workspace }}/src
-        run: dotnet pack ${{ github.workspace }}/$PROJ_PATH -c Release --output ${{ github.workspace }}/nupkg
+        working-directory: $PROJ_PATH
+        run: dotnet pack $PROJ_PATH -c Release --output ${{ github.workspace }}/nupkg
 
       - name: Push NuGet package
         run: |
