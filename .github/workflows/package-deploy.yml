@@ -1,19 +1,65 @@
 name: Deploy package to nuget
 
 on:
-  push:
-    branches: ["main"]
   workflow_dispatch:
+
+env:
+  NUGET_SOURCE: https://api.nuget.org/v3/index.json
+  PROJ_PATH: ./src/NetExt.Core/NetExt.Core.csproj
+  TESTS_PROJ_PATH: ./tests/NextExt.Core.UnitTests/NextExt.Core.UnitTests.csproj
 
 permissions:
   contents: write
 
 jobs:
-  build:
+  run-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: | 
+            9.x.x
+            8.x.x
+            7.x.x
+            6.x.x
 
-      - name: Build Api
-        run: dotnet build ./src/NetExt.Core/NetExt.Core/NetExt.Core.csproj
-        
+      - name: Run Tests
+        run: dotnet test $TESTS_PROJ_PATH -c Release
+  
+  deploy:
+    needs: run-tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Main Branch
+        run: |
+          if [[ "${{ github.ref_name }}" != "main" ]]; then
+            echo "This workflow can only be triggered on the 'main' branch."
+            exit 1
+          fi
+      - name: Check Repository Owner
+        run: |
+          if [[ "${{ github.actor }}" != "${{ github.repository_owner }}" ]]; then
+            echo "Unauthorized: Only the repository owner (${ github.repository_owner }) can trigger this workflow."
+            exit 1
+          fi
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: | 
+            9.x.x
+            8.x.x
+            7.x.x
+            6.x.x
+
+      - name: Build
+        run: dotnet build $PROJ_PATH -c Release
+
+      - name: Pack NuGet package
+        run: dotnet pack $PROJ_PATH -c Release --output ${{ github.workspace }}/nupkg
+
+      - name: Push NuGet package
+        run: |
+          dotnet nuget push ${{ github.workspace }}/nupkg/*.nupkg \
+            --api-key ${{ secrets.NUGET_API_KEY }} \
+            --source $NUGET_SOURCE

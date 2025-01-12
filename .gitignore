@@ -1,0 +1,74 @@
+# Build artifacts
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.nuget.props
+*.nuget.targets
+*.snupkg
+*.nupkg
+*.log
+
+# Rider settings
+.idea/
+.idea_modules/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+
+# NuGet
+*.nupkg
+.nuget/packages/
+.nuget/temp/
+
+# Visual Studio Code settings
+/.vs/*
+/.vs/**/*
+.vs/*
+.vs/**/*
+**/*/.vs/**/*
+/**/*/.vs/**/*
+
+# JetBrains Rider
+**/*/.idea/**/*
+/**/*/.idea/**/*
+*.sln.iml
+
+# Backup & temporary files
+*.bak
+*.swp
+*.tmp
+*.temp
+~$*
+
+# Logs
+*.log
+
+# DotCover is a Code Coverage Tool
+*.dotCover
+
+# Coverage and test results
+TestResults/
+*.coverage
+*.coveragexml
+*.trx
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+resharper.xml
+
+# MacOS files
+.DS_Store
+
+# Windows thumbnail cache files
+Thumbs.db
+
+# Folder-specific exclusions
+**/bin/
+**/obj/
