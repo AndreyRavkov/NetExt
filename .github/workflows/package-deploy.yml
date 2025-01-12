@@ -27,4 +27,4 @@ jobs:
         run: dotnet build ./src/NetExt.Core/NetExt.Core/NetExt.Core.csproj -c Release
 
       - name: Run Tests
-        run: dotnet test ./tests/NetExt.Core.UnitTests/NextExt.Core.UnitTests.csproj -c Release
+        run: dotnet test ./tests/NextExt.Core.UnitTests/NextExt.Core.UnitTests.csproj -c Release
