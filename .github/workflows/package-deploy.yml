@@ -16,7 +16,7 @@ permissions:
   contents: write
 
 jobs:
-  build:
+  run-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -27,15 +27,12 @@ jobs:
             8.x.x
             7.x.x
             6.x.x
-
-      - name: Build Api
-        run: dotnet build $PROJ_PATH -c Release
 
       - name: Run Tests
         run: dotnet test $TESTS_PROJ_PATH -c Release
   
   deploy:
-    needs: build
+    needs: run-tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -46,6 +43,9 @@ jobs:
             8.x.x
             7.x.x
             6.x.x
+
+      - name: Build
+        run: dotnet build $PROJ_PATH -c Release
 
       - name: Pack NuGet package
         run: dotnet pack $PROJ_PATH -c Release --output ${{ github.workspace }}/nupkg
