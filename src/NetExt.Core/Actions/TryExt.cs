@@ -11,7 +11,7 @@ public static class TryExt
                                                 Func<Task>? finallyActionAsync = null)
     {
         RequireExt.ThrowIfNull(action);
-
+        
         var result = default(T);
         try
         {
