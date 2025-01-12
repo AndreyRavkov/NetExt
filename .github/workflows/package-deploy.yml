@@ -28,3 +28,24 @@ jobs:
 
       - name: Run Tests
         run: dotnet test ./tests/NextExt.Core.UnitTests/NextExt.Core.UnitTests.csproj -c Release
+  
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: | 
+            9.x.x
+            8.x.x
+            7.x.x
+            6.x.x
+
+      - name: Pack NuGet package
+        run: dotnet pack --configuration Release --output ./nupkg
+
+      - name: Push NuGet package
+        run: |
+          dotnet nuget push ./nupkg/*.nupkg \
+            --api-key ${{ secrets.NUGET_API_KEY }} \
+            --source https://api.nuget.org/v3/index.json
