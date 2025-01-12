@@ -15,14 +15,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Build Api
-        uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: | 
             9.x.x
             8.x.x
             7.x.x
             6.x.x
-      - run: dotnet build ./src/NetExt.Core/NetExt.Core/NetExt.Core.csproj -c Release
-        
+
+      - name: Build Api
+        run: dotnet build ./src/NetExt.Core/NetExt.Core/NetExt.Core.csproj -c Release
+
+      - name: Run Tests
+        run: dotnet test ./tests/NetExt.Core.UnitTests/NextExt.Core.UnitTests.csproj -c Release
