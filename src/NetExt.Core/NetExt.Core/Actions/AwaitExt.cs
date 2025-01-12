@@ -287,7 +287,7 @@ public static class AwaitExt
                    task19.GetAwaiter().GetResult(), task20.GetAwaiter().GetResult());
     }
     
-    public static async Task ExecuteAsync(
+    private static async Task ExecuteAsync(
         IEnumerable<Task> resultTasks,
         IEnumerable<Task>? noResultTasks = null)
     {
