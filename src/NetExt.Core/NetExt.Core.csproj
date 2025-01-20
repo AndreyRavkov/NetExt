@@ -7,10 +7,9 @@
     <TargetFrameworks>net6.0;net7.0;net8.0;net9.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>NetExt.Core</PackageId>
-    <Version>0.0.2</Version>
-    <Copyright>Andrey Ravkov</Copyright>
-    <Authors>Andrey Ravkov and other contributors</Authors>
-    <Description>Simple .net extensions</Description>
+    <Version>0.0.3</Version>
+    <Authors>Andrey and other contributors</Authors>
+    <Description>Simple daily used .net extensions</Description>
     <PackageProjectUrl>https://github.com/AndreyRavkov/NetExt</PackageProjectUrl>
     <RepositoryUrl>https://github.com/AndreyRavkov/NetExt</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
@@ -24,6 +23,9 @@
     <PackageReleaseNotes>
       v0.0.1: init create
       v0.0.2: update documentation in readme file
+      v0.0.3: 
+            - move MayBe to separate namespace. Add extensions for comform usage
+            - depricate and remove IsNullOrEmptyExt and IsNullOrWhiteSpaceExt. Use IsNullOrVoidExt extensions instead
     </PackageReleaseNotes>
   </PropertyGroup>
 

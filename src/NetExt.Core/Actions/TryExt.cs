@@ -95,6 +95,7 @@ public static class TryExt
             () =>
             {
                 action();
+                
                 return new object();
             },
             catchAction,
