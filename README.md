@@ -104,12 +104,18 @@ interface IRepository
     Task<MayBe<UserEntity>> GetAsync(int id); 
 }
 ...
-MayBe<UserEntity> entity = IRepository.GetAsync(123);
+MayBe<UserEntity> entity = await IRepository.GetAsync(123);
 // check that entity exists or not
 if (entity.Exists)
 {
     // TBD
 }
+...
+// OR
+var entity = (await IRepository.GetAsync(123)).GetOrThrow("Entity");
+// OR
+var entity = await IRepository.GetAsync(123).GetOrThrow("Entity");
+...
 
 // return entity or throw exception
 var result = entity.AssumeExists("error message");
@@ -118,11 +124,16 @@ var result = entity.AssumeExists("error message");
 ### Namespace: NetExt.Core.Strings
 The namespace class provides a rich set of extension methods for enhancing string manipulation. These methods simplify common string operations such as trimming, checking for null or empty strings, encoding to Base64, and more, making string handling more efficient and expressive.
 ```csharp
+// use with params or like default
+// stringValue.IsNullOrVoidExt(checkWhiteSpace:false, trim: false)
+// OR
+// stringValue.IsNullOrVoidExt()
+
 var stringValue = "some string here";
-if (stringValue.IsNullOrEmptyExt()) {
-    return true;
-} else {
+if (stringValue.IsNullOrVoidExt(checkWhiteSpace:false, trim: false)) {
     return false;
+} else {
+    return true;
 }
 ```
 

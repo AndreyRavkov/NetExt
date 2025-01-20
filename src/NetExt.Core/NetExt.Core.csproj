@@ -23,7 +23,9 @@
     <PackageReleaseNotes>
       v0.0.1: init create
       v0.0.2: update documentation in readme file
-      v0.0.3: add MayBe extension to use AssumeExists with async\await -> AssumeExistsAsync
+      v0.0.3: 
+            - move MayBe to separate namespace. Add extensions for comform usage
+            - depricate and remove IsNullOrEmptyExt and IsNullOrWhiteSpaceExt. Use IsNullOrVoidExt extensions instead
     </PackageReleaseNotes>
   </PropertyGroup>
 
