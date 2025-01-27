@@ -1,4 +1,4 @@
-name: Deploy package to nuget
+name: Deploy package to nuget server
 
 on:
   workflow_dispatch:
@@ -20,11 +20,35 @@ permissions:
   contents: write
 
 jobs:
-  deploy-core:
+  job-verification:
+    runs-on: ubuntu-latest
+    steps:
+      # - name: Check Main Branch
+      #   run: |
+      #     if [[ "${{ github.ref_name }}" != "main" ]]; then
+      #       echo "This workflow can only be triggered on the 'main' branch."
+      #       exit 1
+      #     fi
+      - name: Check Repository Owner
+        run: |
+          if [[ "${{ github.actor }}" != "${{ github.repository_owner }}" ]]; then
+            echo "Unauthorized: Only the repository owner (${ github.repository_owner }) can trigger this workflow."
+            exit 1
+          fi
+
+  job-deploy-NetExt_Core:
+    needs: job-verification
     uses: ./.github/workflows/deploy-package-flow.yml
     if: ${{ inputs.package_name == 'NextExt.Core' }}
     with:
       project_path: './src/NetExt.Core/NetExt.Core.csproj'
+  
+  job-deploy-NetExt_Models:
+    needs: job-verification
+    uses: ./.github/workflows/deploy-package-flow.yml
+    if: ${{ inputs.package_name == 'NetExt.Models' }}
+    with:
+      project_path: './src/NetExt.Models/NetExt.Models.csproj'
 
 
   # run-tests:
