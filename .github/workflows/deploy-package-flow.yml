@@ -16,23 +16,7 @@ permissions:
   contents: write
 
 jobs:
-  # run-tests:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: actions/setup-dotnet@v4
-  #       with:
-  #         dotnet-version: | 
-  #           9.x.x
-  #           8.x.x
-  #           7.x.x
-  #           6.x.x
-
-  #     - name: Run Tests
-  #       run: dotnet test $TESTS_PROJ_PATH -c Release
-  
-  deploy:
-    # needs: run-tests
+  job-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -50,10 +34,8 @@ jobs:
       - name: Pack NuGet package
         run: dotnet pack ${{inputs.project_path}} -c Release --output ${{ github.workspace }}/nupkg
 
-      - name: TODo
-        run: echo "push... done..."
-      # - name: Push NuGet package
-      #   run: |
-      #     dotnet nuget push ${{ github.workspace }}/nupkg/*.nupkg \
-      #       --api-key ${{ secrets.NUGET_API_KEY }} \
-      #       --source $NUGET_SOURCE
+      - name: Push NuGet package
+        run: |
+          dotnet nuget push ${{ github.workspace }}/nupkg/*.nupkg \
+            --api-key ${{ secrets.NUGET_API_KEY }} \
+            --source $NUGET_SOURCE
