@@ -1,3 +1,16 @@
+# Namespace: NetExt.Models.*
+Namespace contains the different models & exceptions.
+
+Models:
+* IdNameModel
+* ListResult
+
+Exceptions:
+* BadRequestException
+* ForbiddenException
+* NotFoundException
+* UnAuthorizationException
+
 # NetExt.Core
 This is list of daily-useful .net extensions
 
@@ -50,18 +63,6 @@ await TryExt.ExecuteAsync(...);
 ### Namespace: NetExt.Core.Require
 The namespace provides utility methods to enforce object validity and condition checks at runtime. These methods are particularly useful for defensive programming, ensuring that objects meet necessary conditions before proceeding with execution.
 
-### Namespace: NetExt.Core.Models.*
-Namespace contains the different models & exceptions:
-
-Models:
-* IdNameModel
-* ListResult
-
-Exceptions:
-* BadRequestException
-* ForbiddenException
-* NotFoundException
-* UnAuthorizationException
 
 ### Namespace: NetExt.Core.Collections
 The namespace class provides utility methods for working with collections in a more intuitive and streamlined way. These extensions help convert individual items into various collection types and simplify iteration over collections.

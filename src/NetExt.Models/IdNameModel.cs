@@ -1,4 +1,4 @@
-namespace NetExt.Core.Models;
+namespace NetExt.Models;
 
 [Serializable]
 public class IdNameModel<T, TY> : IEqualityComparer<IdNameModel<T, TY>>

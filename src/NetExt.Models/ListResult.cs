@@ -1,4 +1,4 @@
-namespace NetExt.Core.Models;
+namespace NetExt.Models;
 
 public class ListResult<T> where T : class
 {

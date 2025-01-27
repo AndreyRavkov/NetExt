@@ -1,4 +1,4 @@
-namespace NetExt.Core.Models.Extensions;
+namespace NetExt.Models.Exceptions;
 
 public class BadRequestException : Exception
 {
