@@ -51,16 +51,18 @@ jobs:
       - name: Run Tests
         run: dotnet test $TESTS_PROJ_PATH -c Release
 
-  job-deploy-NetExt_Core:
+  job-NetExt_Core:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
     if: ${{ inputs.package_name == 'NextExt.Core' }}
     with:
       project_path: './src/NetExt.Core/NetExt.Core.csproj'
+      NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
   
-  job-deploy-NetExt_Models:
+  job-NetExt_Models:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
     if: ${{ inputs.package_name == 'NetExt.Models' }}
     with:
       project_path: './src/NetExt.Models/NetExt.Models.csproj'
+      NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}

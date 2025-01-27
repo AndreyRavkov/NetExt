@@ -7,6 +7,10 @@ on:
         description: "Path to nuget project"
         required: true
         type: string
+      NUGET_API_KEY:
+        description: "Nuget API Key"
+        required: true
+        type: string
 
 env:
   NUGET_SOURCE: https://api.nuget.org/v3/index.json
@@ -15,7 +19,7 @@ permissions:
   contents: write
 
 jobs:
-  job-deploy:
+  build-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -36,5 +40,5 @@ jobs:
       - name: Push NuGet package
         run: |
           dotnet nuget push ${{ github.workspace }}/nupkg/*.nupkg \
-            --api-key ${{ secrets.NUGET_API_KEY }} \
+            --api-key ${{ inputs.NUGET_API_KEY }} \
             --source $NUGET_SOURCE
