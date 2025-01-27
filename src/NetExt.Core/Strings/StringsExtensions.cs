@@ -36,9 +36,42 @@ public static class StringsExtensions
         return result;
     }
     
-    public static string? ToStringInvariantExt(this string? str)
+    /// <summary>
+    /// Convert object to string with CultureInfo.InvariantCulture as IFormatProvider
+    /// </summary>
+    /// <param name="str"></param>
+    /// <param name="provider"></param>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
+    public static string? ToStringExt<T>(this T? str, IFormatProvider? provider = null)
     {
-        return str?.ToString(CultureInfo.InvariantCulture);
+        provider ??= CultureInfo.InvariantCulture;
+        if (str is null)
+        {
+            return null;
+        }
+
+        return str switch
+        {
+            string strValue => strValue.ToString(provider),
+            int intValue => intValue.ToString(provider),
+            uint uintValue => uintValue.ToString(provider),
+            nint nintValue => nintValue.ToString(provider),
+            long longValue => longValue.ToString(provider),
+            ulong ulongValue => ulongValue.ToString(provider),
+            float floatValue => floatValue.ToString(provider),
+            double doubleValue => doubleValue.ToString(provider),
+            decimal decimalValue => decimalValue.ToString(provider),
+            bool boolValue => boolValue.ToString(provider),
+            byte byteValue => byteValue.ToString(provider),
+            sbyte sbyteValue => sbyteValue.ToString(provider),
+            short shortValue => shortValue.ToString(provider),
+            ushort ushortValue => ushortValue.ToString(provider),
+            DateOnly dateOnly => dateOnly.ToString(provider),
+            System.DateTime dateTime => dateTime.ToString(provider),
+            DateTimeOffset dateTimeOffset => dateTimeOffset.ToString(provider),
+            _ => str.ToString()
+        };
     }
 
     /// <summary>

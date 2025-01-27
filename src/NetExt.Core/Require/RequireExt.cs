@@ -1,4 +1,5 @@
 using System.Runtime.CompilerServices;
+using NetExt.Core.Strings;
 
 namespace NetExt.Core.Require;
 
@@ -14,20 +15,50 @@ public static class RequireExt
     /// <exception cref="RequireException"></exception>
     /// <exception cref="ArgumentNullException"></exception>
     public static void ThrowIfNull(
-        object value,
+        object? value,
+        bool useRequireException = false,
+        [CallerArgumentExpression(nameof(value))] string? objectName = null,
+        string? errorMessage = "")
+    {
+        if (value != null)
+        {
+            return;
+        }
+        if (useRequireException)
+        {
+            throw new RequireException(errorMessage, new ArgumentNullException(objectName));
+        }
+        throw new ArgumentNullException(objectName);
+    }
+
+    /// <summary>
+    /// Require that string should be not null or empty or whitespace with trim option
+    /// </summary>
+    /// <param name="value"></param>
+    /// <param name="checkWhiteSpace"></param>
+    /// <param name="trim"></param>
+    /// <param name="useRequireException"></param>
+    /// <param name="objectName"></param>
+    /// <param name="errorMessage"></param>
+    /// <exception cref="RequireException"></exception>
+    /// <exception cref="ArgumentNullException"></exception>
+    public static void ThrowIfNullOrVoid(
+        string? value,
+        bool checkWhiteSpace = false,
+        bool trim = false,
         bool useRequireException = false,
         [CallerArgumentExpression(nameof(value))] string? objectName = null,
         string errorMessage = "")
     {
-        if (value == null)
+        if (!value.IsNullOrVoidExt(checkWhiteSpace, trim))
         {
-            if (useRequireException)
-            {
-                throw new RequireException(errorMessage, new ArgumentNullException(objectName));
-            }
-
-            throw new ArgumentNullException(objectName);
+            return;
         }
+        if (useRequireException)
+        {
+            throw new RequireException(errorMessage, new ArgumentNullException(objectName));
+        }
+        throw new ArgumentNullException(objectName);
     }
     
     /// <summary>

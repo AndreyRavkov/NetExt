@@ -8,7 +8,7 @@ The AwaitExt class provides utility methods for efficiently handling multiple as
 ```csharp
 var noResultTasks = new [] { Task.Delay(100), Task.Delay(200), Task.Delay(300) };
 var result = await AwaitExt.TasksAsync(
-                 /* taskas with returnresults */
+                 /* taskas with return results */
                  DelayValueAsync<int>(InputValue1),
                  DelayValueAsync<string>(InputValue2),
                  /* options tasks without results */
