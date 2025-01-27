@@ -2,13 +2,13 @@ name: Deploy package to nuget
 
 on:
   workflow_call:
+    secrets:
+      NUGET_API_KEY:
+        description: "Nuget API Key"
+        required: true
     inputs:
       project_path:
         description: "Path to nuget project"
-        required: true
-        type: string
-      NUGET_API_KEY:
-        description: "Nuget API Key"
         required: true
         type: string
 
@@ -40,5 +40,5 @@ jobs:
       - name: Push NuGet package
         run: |
           dotnet nuget push ${{ github.workspace }}/nupkg/*.nupkg \
-            --api-key ${{ inputs.NUGET_API_KEY }} \
+            --api-key ${{ secrets.NUGET_API_KEY }} \
             --source $NUGET_SOURCE

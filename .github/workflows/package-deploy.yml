@@ -55,14 +55,16 @@ jobs:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
     if: ${{ inputs.package_name == 'NextExt.Core' }}
+    secrets:
+      NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
     with:
       project_path: './src/NetExt.Core/NetExt.Core.csproj'
-      NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
   
   job-NetExt_Models:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
     if: ${{ inputs.package_name == 'NetExt.Models' }}
+    secrets:
+      NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
     with:
       project_path: './src/NetExt.Models/NetExt.Models.csproj'
-      NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
