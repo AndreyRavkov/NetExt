@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TargetFrameworks>net6.0;net7.0;net8.0;net9.0;netstandard2.1;netstandard2.0</TargetFrameworks>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>NetExt.Require</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Andrey and other contributors</Authors>
+    <Description>The namespace provides utility methods to enforce object validity and condition checks at runtime. These methods are particularly useful for defensive programming, ensuring that objects meet necessary conditions before proceeding with execution.</Description>
+    <PackageProjectUrl>https://github.com/AndreyRavkov/NetExt</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/AndreyRavkov/NetExt</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>
+      extensions;.net extensions;C# extensions;
+      runtime-checks;validation;object-validation;condition-checks;input-validation;
+      assertions;preconditions;postconditions;contract-validation;safety
+    </PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReleaseNotes>
+      v1.0.1: migrate to separate nuget package from NetExt.Core
+    </PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="\" />
+    <None Include="..\..\icon.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>
