@@ -1,4 +1,4 @@
-using NetExt.Core.Actions;
+using NetExt.Awaiter;
 using Xunit;
 
 namespace NextExt.Core.UnitTests.Actions;

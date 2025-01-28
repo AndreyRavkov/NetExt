@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\NetExt.Awaiter\NetExt.Awaiter.csproj" />
     <ProjectReference Include="..\..\src\NetExt.Core\NetExt.Core.csproj" />
   </ItemGroup>
   

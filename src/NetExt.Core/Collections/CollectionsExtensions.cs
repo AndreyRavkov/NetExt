@@ -4,10 +4,10 @@ public static class CollectionsExtensions
 {
     public static IList<T> ToListExt<T>(this T? source)
     {
-        return source == null ? new List<T>() : new List<T> { source };
+        return source is null ? Array.Empty<T>() : new List<T> { source };
     }
     
-    public static IEnumerable<T> ToEnumerableListExt<T>(this T? source)
+    public static IEnumerable<T> ToEnumerableExt<T>(this T? source)
     {
         return ToListExt(source);
     }

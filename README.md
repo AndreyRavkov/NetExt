@@ -1,15 +1,25 @@
-# Namespace: NetExt.Models.*
-Namespace contains the different models & exceptions.
+# Namespace: NetExt.Models
+The NetExt.Models namespace provides a set of core models and exceptions designed to simplify application development by offering reusable structures and standardized error handling. This package ensures consistency and clarity in managing data and exceptions across your application.
 
 Models:
-* IdNameModel
-* ListResult
+- IdNameModel: A simple model containing an Id and Name, ideal for representing key-value pairs or lookup entities.
+- ListResult: A utility model for returning paginated or list-based results, commonly used in API responses. 
 
 Exceptions:
-* BadRequestException
-* ForbiddenException
-* NotFoundException
-* UnAuthorizationException
+- BadRequestException: Represents an HTTP 400 (Bad Request) error for invalid or malformed input.
+- ForbiddenException: Represents an HTTP 403 (Forbidden) error for unauthorized access attempts.
+- NotFoundException: Represents an HTTP 404 (Not Found) error for missing resources.
+- UnAuthorizationException: Represents an HTTP 401 (Unauthorized) error for failed authentication.
+
+Benefits:
+- Standardization: Provides consistent models and exception handling throughout your application.
+- Readability: Improves code clarity by using well-defined structures and error types.
+- Ease of Use: Simplifies the development process with ready-to-use models and exceptions.
+
+Use Cases:
+- Define and share common models for API responses or data handling.
+- Ensure unified exception handling for client-server communication.
+- Improve the maintainability and scalability of your codebase.
 
 # NetExt.Core
 This is list of daily-useful .net extensions

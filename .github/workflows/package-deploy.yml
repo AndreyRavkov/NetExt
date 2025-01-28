@@ -9,6 +9,7 @@ on:
         type: choice
         options:
           - 'NextExt.Core'
+          - 'NetExt.Awaiter'
           - 'NetExt.Models'
 
 env:
@@ -59,6 +60,15 @@ jobs:
       NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
     with:
       project_path: './src/NetExt.Core/NetExt.Core.csproj'
+  
+  job-NetExt_Awaiter:
+    needs: job-tests
+    uses: ./.github/workflows/deploy-package-flow.yml
+    if: ${{ inputs.package_name == 'NetExt.Awaiter' }}
+    secrets:
+      NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+    with:
+      project_path: './src/NetExt.Awaiter/NetExt.Awaiter.csproj'
   
   job-NetExt_Models:
     needs: job-tests
