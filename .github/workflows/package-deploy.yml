@@ -52,7 +52,7 @@ jobs:
       - name: Run Tests
         run: dotnet test $TESTS_PROJ_PATH -c Release
 
-  job-NetExt_Core:
+  NetExt_Core:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
     if: ${{ inputs.package_name == 'NextExt.Core' }}
@@ -61,7 +61,7 @@ jobs:
     with:
       project_path: './src/NetExt.Core/NetExt.Core.csproj'
   
-  job-NetExt_Awaiter:
+  NetExt_Awaiter:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
     if: ${{ inputs.package_name == 'NetExt.Awaiter' }}
@@ -70,7 +70,7 @@ jobs:
     with:
       project_path: './src/NetExt.Awaiter/NetExt.Awaiter.csproj'
   
-  job-NetExt_Models:
+  NetExt_Models:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
     if: ${{ inputs.package_name == 'NetExt.Models' }}
