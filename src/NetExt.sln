@@ -24,6 +24,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		..\.github\workflows\build.yml = ..\.github\workflows\build.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetExt.MayBe", "NetExt.MayBe\NetExt.MayBe.csproj", "{BC86A361-FFA7-4C0B-B756-8D37DDD22841}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,10 @@ Global
 		{81B0A3F8-C612-4CE2-B704-A17144FAF5FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81B0A3F8-C612-4CE2-B704-A17144FAF5FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81B0A3F8-C612-4CE2-B704-A17144FAF5FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC86A361-FFA7-4C0B-B756-8D37DDD22841}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC86A361-FFA7-4C0B-B756-8D37DDD22841}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC86A361-FFA7-4C0B-B756-8D37DDD22841}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC86A361-FFA7-4C0B-B756-8D37DDD22841}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F6556E77-DB86-43B4-8D58-85FE075880A2} = {B82A61ED-A059-4AB5-BF28-738CF14F0928}
@@ -53,5 +59,6 @@ Global
 		{DD0872B9-4DD6-4D49-A93C-8C2D35C1A0F7} = {B82A61ED-A059-4AB5-BF28-738CF14F0928}
 		{81B0A3F8-C612-4CE2-B704-A17144FAF5FB} = {B82A61ED-A059-4AB5-BF28-738CF14F0928}
 		{B9FBA5A5-C3E7-4B26-940E-ED9337D4B1B5} = {068529ED-8648-41C5-AAF0-094965DF3517}
+		{BC86A361-FFA7-4C0B-B756-8D37DDD22841} = {B82A61ED-A059-4AB5-BF28-738CF14F0928}
 	EndGlobalSection
 EndGlobal
