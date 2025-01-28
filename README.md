@@ -78,6 +78,43 @@ Use Cases:
 - Ensure unified exception handling for client-server communication.
 - Improve the maintainability and scalability of your codebase.
 
+# Package: NetExt.Strings
+NetExt.Strings is a powerful utility library that extends string manipulation capabilities in .NET. It provides a variety of robust, easy-to-use methods for trimming, validating, transforming, encoding, and replacing string values. This package simplifies common string operations, improves code readability, and enhances productivity for .NET developers.
+
+#### Key Features:
+- String Validation: Check for null, empty, or whitespace values with optional trimming.
+- Custom Replacements: Replace keys, characters, or substrings within strings using flexible methods.
+- Base64 Encoding and Decoding: Seamlessly convert strings to and from Base64 with customizable encoding.
+- Digit Extraction: Extract numeric values from strings with ease.
+- String Joining: Combine collections of strings with a specified separator.
+- Culture-Aware Conversion: Convert objects to strings using CultureInfo.InvariantCulture or a custom provider.
+- Enhanced Trimming: Remove leading and trailing whitespaces with improved trimming functionality.
+
+Example Usages:
+```csharp
+using NetExt.Strings;
+
+// Trim a string
+var trimmed = "  Hello World  ".TrimExt(); // Output: "Hello World"
+
+// Validate string
+var isNullOrVoid = "".IsNullOrVoidExt(); // Output: true
+
+// Replace keys in a string
+var replacements = new Dictionary<string, string> { { "World", "Universe" } };
+var replaced = "Hello World".ReplaceExt(replacements); // Output: "Hello Universe"
+
+// Base64 encoding
+var base64 = "Hello".ToBase64Ext(); // Output: "SGVsbG8="
+var decoded = base64.FromBase64Ext(); // Output: "Hello"
+
+// Get digits from a string
+var digits = "A1B2C3".GetOnlyDigitsExt(); // Output: 123
+
+// Join strings
+var joined = new[] { "one", "two", "three" }.JoinWithExt(", "); // Output: "one, two, three"
+```
+
 # Package NetExt.Core
 This is list of daily-useful .net extensions
 
@@ -158,20 +195,3 @@ var entity = await IRepository.GetAsync(123).GetOrThrow("Entity");
 // return entity or throw exception
 var result = entity.AssumeExists("error message");
 ```
-
-### Namespace: NetExt.Core.Strings
-The namespace class provides a rich set of extension methods for enhancing string manipulation. These methods simplify common string operations such as trimming, checking for null or empty strings, encoding to Base64, and more, making string handling more efficient and expressive.
-```csharp
-// use with params or like default
-// stringValue.IsNullOrVoidExt(checkWhiteSpace:false, trim: false)
-// OR
-// stringValue.IsNullOrVoidExt()
-
-var stringValue = "some string here";
-if (stringValue.IsNullOrVoidExt(checkWhiteSpace:false, trim: false)) {
-    return false;
-} else {
-    return true;
-}
-```
-

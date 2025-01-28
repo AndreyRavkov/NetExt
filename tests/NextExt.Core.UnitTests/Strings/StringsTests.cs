@@ -1,4 +1,4 @@
-using NetExt.Core.Strings;
+using NetExt.Strings;
 using Xunit;
 
 namespace NextExt.Core.UnitTests.Strings;

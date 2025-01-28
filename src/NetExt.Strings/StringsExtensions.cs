@@ -1,7 +1,7 @@
 using System.Globalization;
 using System.Text;
 
-namespace NetExt.Core.Strings;
+namespace NetExt.Strings;
 
 public static class StringsExtensions
 {
@@ -56,7 +56,6 @@ public static class StringsExtensions
             string strValue => strValue.ToString(provider),
             int intValue => intValue.ToString(provider),
             uint uintValue => uintValue.ToString(provider),
-            nint nintValue => nintValue.ToString(provider),
             long longValue => longValue.ToString(provider),
             ulong ulongValue => ulongValue.ToString(provider),
             float floatValue => floatValue.ToString(provider),
@@ -67,9 +66,12 @@ public static class StringsExtensions
             sbyte sbyteValue => sbyteValue.ToString(provider),
             short shortValue => shortValue.ToString(provider),
             ushort ushortValue => ushortValue.ToString(provider),
-            DateOnly dateOnly => dateOnly.ToString(provider),
-            System.DateTime dateTime => dateTime.ToString(provider),
+            DateTime dateTime => dateTime.ToString(provider),
             DateTimeOffset dateTimeOffset => dateTimeOffset.ToString(provider),
+            #if NET6_0_OR_GREATER
+            nint nintValue => nintValue.ToString(provider),
+            DateOnly dateOnly => dateOnly.ToString(provider),
+            #endif
             _ => str.ToString()
         };
     }
