@@ -7,7 +7,7 @@
     <TargetFrameworks>net6.0;net7.0;net8.0;net9.0;netstandard2.1;netstandard2.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>NetExt.Models</PackageId>
-    <Version>1.0.1-beta</Version>
+    <Version>1.0.0</Version>
     <Authors>Andrey and other contributors</Authors>
     <Description>The pacakge provides a set of core models and exceptions designed to simplify application development by offering reusable structures and standardized error handling. This package ensures consistency and clarity in managing data and exceptions across your application.</Description>
     <PackageProjectUrl>https://github.com/AndreyRavkov/NetExt</PackageProjectUrl>

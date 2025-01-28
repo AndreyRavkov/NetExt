@@ -83,36 +83,6 @@ This is list of daily-useful .net extensions
 
 ### Namespace: NetExt.Core.Actions
 
-### Await Extensions
-The AwaitExt class provides utility methods for efficiently handling multiple asynchronous tasks, including tasks with and without return values. These extensions simplify combining, executing, and awaiting multiple tasks, making it easier to manage complex asynchronous workflows.
-```csharp
-var noResultTasks = new [] { Task.Delay(100), Task.Delay(200), Task.Delay(300) };
-var result = await AwaitExt.TasksAsync(
-                 /* taskas with return results */
-                 DelayValueAsync<int>(InputValue1),
-                 DelayValueAsync<string>(InputValue2),
-                 /* options tasks without results */
-                 noResultTasks);
-
-Assert.True(result.Item1 == InputValue1);
-Assert.True(result.Item2 == InputValue2);
-```
-#### Benefits:
-1. Simplifies Asynchronous Workflows
-Enables easy execution and awaiting of multiple tasks, avoiding complex Task.WhenAll and manual result extraction.
-2. Supports Mixed Tasks
-Handles both returnable and non-returnable tasks in a single method call.
-3. Tuple Support for Results
-Returns results in a clean, structured tuple format, making it easier to work with multiple outputs.
-4. Scalability
-Supports up to 20 tasks with return values, accommodating even the most complex workflows.
-
-#### When to Use:
-1. Combining Multiple Tasks
-When you need to wait for multiple tasks, possibly with mixed return types.
-2. Improved Readability
-To reduce boilerplate code for managing Task.WhenAll and extracting results.
-
 ### Try Extensions
 The TryExt class provides utility methods for safely executing synchronous and asynchronous actions with built-in support for exception handling and finalization logic. These methods are designed to simplify error-prone tasks by offering a clean, reusable, and configurable way to handle exceptions and ensure post-action cleanup.
 ```csharp
