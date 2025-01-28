@@ -1,5 +1,62 @@
-# Namespace: NetExt.Models
-The NetExt.Models namespace provides a set of core models and exceptions designed to simplify application development by offering reusable structures and standardized error handling. This package ensures consistency and clarity in managing data and exceptions across your application.
+# Package: NetExt.Awaiter
+Awaiter is a lightweight package for simplifying the management of multiple asynchronous tasks. It allows you to seamlessly await tasks with or without return values, combining them into a single, structured workflow. With tuple-based result handling, Awaiter helps you reduce boilerplate code and improves the readability of complex asynchronous operations.
+
+Features:
+- Simplifies Task Management
+Combine tasks with and without return values into a single operation.
+- Tuple-Based Results
+Receive the results of tasks in a structured tuple format, supporting up to 20 returnable tasks.
+- Mixed Task Support
+Manage tasks with mixed return types while optionally awaiting non-returnable tasks.
+- Clean Code
+Reduce boilerplate code for Task.WhenAll and manual result extraction.
+
+### Usage
+#### Basic Usage:
+```csharp
+using NetExt.Awaiter;
+
+// Tasks with return values
+var task1 = Task.FromResult(10);
+var task2 = Task.FromResult("Hello");
+
+// Tasks without return values
+var noResultTasks = new[] { Task.Delay(100), Task.Delay(200) };
+
+// Await and combine results
+var result = await AwaitExt.TasksAsync(task1, task2, noResultTasks);
+
+Console.WriteLine(result.Item1); // Outputs: 10
+Console.WriteLine(result.Item2); // Outputs: Hello
+```
+
+#### Handling Multiple Returnable Tasks
+```csharp
+var task1 = Task.FromResult(10);
+var task2 = Task.FromResult("Hello");
+var task3 = Task.FromResult(true);
+
+var result = await AwaitExt.TasksAsync(task1, task2, task3);
+
+Console.WriteLine(result.Item1); // 10
+Console.WriteLine(result.Item2); // Hello
+Console.WriteLine(result.Item3); // True
+```
+
+#### Working with Only Non-Returnable Tasks
+```csharp
+var noResultTasks = new[] { Task.Delay(100), Task.Delay(200) };
+
+await AwaitExt.TasksAsync(noResultTasks);
+```
+
+### Benefits
+- Improved Readability: Streamline asynchronous workflows with a clear and concise API.
+- Flexibility: Supports up to 20 tasks with return values, making it suitable for large operations.
+- Consistency: Combines returnable and non-returnable tasks in a unified method.
+
+# Package: NetExt.Models
+The package provides a set of core models and exceptions designed to simplify application development by offering reusable structures and standardized error handling. This package ensures consistency and clarity in managing data and exceptions across your application.
 
 Models:
 - IdNameModel: A simple model containing an Id and Name, ideal for representing key-value pairs or lookup entities.
@@ -21,7 +78,7 @@ Use Cases:
 - Ensure unified exception handling for client-server communication.
 - Improve the maintainability and scalability of your codebase.
 
-# NetExt.Core
+# Package NetExt.Core
 This is list of daily-useful .net extensions
 
 ### Namespace: NetExt.Core.Actions
