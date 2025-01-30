@@ -1,9 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NetExt.Core", "NetExt.Core", "{B82A61ED-A059-4AB5-BF28-738CF14F0928}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetExt.Core", "NetExt.Core\NetExt.Core.csproj", "{F6556E77-DB86-43B4-8D58-85FE075880A2}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_SolutionItems", "_SolutionItems", "{068529ED-8648-41C5-AAF0-094965DF3517}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
@@ -11,7 +7,28 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_SolutionItems", "_Solution
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{7A890C71-1AD5-4CB3-BA2A-1AD511812062}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NextExt.Core.UnitTests", "..\tests\NextExt.Core.UnitTests\NextExt.Core.UnitTests.csproj", "{1DF17715-B7D7-4949-B5BA-64037F46ED16}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NextExt.UnitTests", "..\tests\NextExt.UnitTests\NextExt.UnitTests.csproj", "{1DF17715-B7D7-4949-B5BA-64037F46ED16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetExt.Models", "NetExt.Models\NetExt.Models.csproj", "{DD0872B9-4DD6-4D49-A93C-8C2D35C1A0F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetExt.Awaiter", "NetExt.Awaiter\NetExt.Awaiter.csproj", "{81B0A3F8-C612-4CE2-B704-A17144FAF5FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{B9FBA5A5-C3E7-4B26-940E-ED9337D4B1B5}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\workflows\package-deploy.yml = ..\.github\workflows\package-deploy.yml
+		..\.github\workflows\deploy-package-flow.yml = ..\.github\workflows\deploy-package-flow.yml
+		..\.github\workflows\build.yml = ..\.github\workflows\build.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetExt.Strings", "NetExt.Strings\NetExt.Strings.csproj", "{282E5955-769B-4F76-A0AE-3C606948E277}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetExt.Require", "NetExt.Require\NetExt.Require.csproj", "{0D21A0A5-9624-4BA4-B641-7A927445B73D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetExt.MayBe", "NetExt.MayBe\NetExt.MayBe.csproj", "{57207DA5-8BD1-448E-B586-5AB7DD5B7AE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetExt.DateTime", "NetExt.DateTime\NetExt.DateTime.csproj", "{BE216E6E-67A7-47A3-8DDC-33CA0B68ACBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetExt.Utils", "NetExt.Utils\NetExt.Utils.csproj", "{2A3519A7-C76D-4765-AD1A-2666CB49A0E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,17 +36,41 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F6556E77-DB86-43B4-8D58-85FE075880A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F6556E77-DB86-43B4-8D58-85FE075880A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F6556E77-DB86-43B4-8D58-85FE075880A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F6556E77-DB86-43B4-8D58-85FE075880A2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1DF17715-B7D7-4949-B5BA-64037F46ED16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1DF17715-B7D7-4949-B5BA-64037F46ED16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DF17715-B7D7-4949-B5BA-64037F46ED16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DF17715-B7D7-4949-B5BA-64037F46ED16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD0872B9-4DD6-4D49-A93C-8C2D35C1A0F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD0872B9-4DD6-4D49-A93C-8C2D35C1A0F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD0872B9-4DD6-4D49-A93C-8C2D35C1A0F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD0872B9-4DD6-4D49-A93C-8C2D35C1A0F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81B0A3F8-C612-4CE2-B704-A17144FAF5FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81B0A3F8-C612-4CE2-B704-A17144FAF5FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81B0A3F8-C612-4CE2-B704-A17144FAF5FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81B0A3F8-C612-4CE2-B704-A17144FAF5FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{282E5955-769B-4F76-A0AE-3C606948E277}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{282E5955-769B-4F76-A0AE-3C606948E277}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{282E5955-769B-4F76-A0AE-3C606948E277}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{282E5955-769B-4F76-A0AE-3C606948E277}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D21A0A5-9624-4BA4-B641-7A927445B73D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D21A0A5-9624-4BA4-B641-7A927445B73D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D21A0A5-9624-4BA4-B641-7A927445B73D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D21A0A5-9624-4BA4-B641-7A927445B73D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57207DA5-8BD1-448E-B586-5AB7DD5B7AE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57207DA5-8BD1-448E-B586-5AB7DD5B7AE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57207DA5-8BD1-448E-B586-5AB7DD5B7AE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57207DA5-8BD1-448E-B586-5AB7DD5B7AE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE216E6E-67A7-47A3-8DDC-33CA0B68ACBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE216E6E-67A7-47A3-8DDC-33CA0B68ACBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE216E6E-67A7-47A3-8DDC-33CA0B68ACBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE216E6E-67A7-47A3-8DDC-33CA0B68ACBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A3519A7-C76D-4765-AD1A-2666CB49A0E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A3519A7-C76D-4765-AD1A-2666CB49A0E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A3519A7-C76D-4765-AD1A-2666CB49A0E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A3519A7-C76D-4765-AD1A-2666CB49A0E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{F6556E77-DB86-43B4-8D58-85FE075880A2} = {B82A61ED-A059-4AB5-BF28-738CF14F0928}
 		{1DF17715-B7D7-4949-B5BA-64037F46ED16} = {7A890C71-1AD5-4CB3-BA2A-1AD511812062}
+		{B9FBA5A5-C3E7-4B26-940E-ED9337D4B1B5} = {068529ED-8648-41C5-AAF0-094965DF3517}
 	EndGlobalSection
 EndGlobal

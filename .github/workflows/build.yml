@@ -8,14 +8,24 @@ on:
 
 env:
   NUGET_SOURCE: https://api.nuget.org/v3/index.json
-  PROJ_PATH: ./src/NetExt.Core/NetExt.Core.csproj
-  TESTS_PROJ_PATH: ./tests/NextExt.Core.UnitTests/NextExt.Core.UnitTests.csproj
+  SOLUTION_PATH: ./src/NetExt.sln
+  TESTS_PROJ_PATH: ./tests/NextExt.UnitTests/NextExt.UnitTests.csproj
 
 permissions:
   contents: write
 
 jobs:
+  job-verification:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Repository Owner
+        run: |
+          if [[ "${{ github.actor }}" != "${{ github.repository_owner }}" ]]; then
+            echo "Unauthorized: Only the repository owner (${ github.repository_owner }) can trigger this workflow."
+            exit 1
+          fi
   run-tests:
+    needs: job-verification
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -28,7 +38,7 @@ jobs:
             6.x.x
 
       - name: Build
-        run: dotnet build $PROJ_PATH -c Release
+        run: dotnet build $SOLUTION_PATH -c Release
 
       - name: Run Tests
         run: dotnet test $TESTS_PROJ_PATH -c Release

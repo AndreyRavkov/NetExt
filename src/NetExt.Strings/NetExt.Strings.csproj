@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <WarningsAsErrors>nullable</WarningsAsErrors>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0;net8.0;net9.0</TargetFrameworks>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>NetExt.Strings</PackageId>
+    <Version>1.0.1</Version>
+    <Authors>Andrey and other contributors</Authors>
+    <Description>NetExt.Strings is a powerful utility library that extends string manipulation capabilities in .NET. It provides a variety of robust, easy-to-use methods for trimming, validating, transforming, encoding, and replacing string values. This package simplifies common string operations, improves code readability, and enhances productivity for .NET developers.</Description>
+    <PackageProjectUrl>https://github.com/AndreyRavkov/NetExt</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/AndreyRavkov/NetExt</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>
+      extensions;.net extensions;C# extensions;csharp;csharp extensions;
+      string-extensions;string-manipulation;string-validation;base64;
+      trim;replace;join;extract-digits;culture-aware;text-utilities;
+      text-processing;string-operations;coding-productivity;dotnet-helpers;
+    </PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReleaseNotes>
+      v1.0.0: migrate to separate nuget package from NetExt.Core
+      v1.0.1: the final version after split
+    </PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="\" />
+    <None Include="..\..\icon.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>

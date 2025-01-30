@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <WarningsAsErrors>nullable</WarningsAsErrors>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0;net8.0;net9.0</TargetFrameworks>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>NetExt.Models</PackageId>
+    <Version>1.0.4</Version>
+    <Authors>Andrey and other contributors</Authors>
+    <Description>The pacakge provides a set of core models and exceptions designed to simplify application development by offering reusable structures and standardized error handling. This package ensures consistency and clarity in managing data and exceptions across your application.</Description>
+    <PackageProjectUrl>https://github.com/AndreyRavkov/NetExt</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/AndreyRavkov/NetExt</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>
+      extensions;.net extensions;C# extensions;csharp;csharp extensions;;generic models;common models;
+    </PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReleaseNotes>
+      v1.0.0: migrate to separate nuget package from NetExt.Core
+      v1.0.1: add 'Ext' postfix for all models; add RequireExceptionExt model; add serializable attributes;
+      v1.0.2: add Enums models
+      v1.0.3: Introduce new enum 'ExceptionTypeExt' instead 'RequireExceptionType' enum
+      v1.0.4: the final version after split
+    </PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="\" />
+    <None Include="..\..\icon.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>

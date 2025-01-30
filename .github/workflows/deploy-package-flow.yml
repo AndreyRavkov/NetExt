@@ -1,0 +1,44 @@
+name: Deploy package to nuget
+
+on:
+  workflow_call:
+    secrets:
+      NUGET_API_KEY:
+        description: "Nuget API Key"
+        required: true
+    inputs:
+      project_path:
+        description: "Path to nuget project"
+        required: true
+        type: string
+
+env:
+  NUGET_SOURCE: https://api.nuget.org/v3/index.json
+
+permissions:
+  contents: write
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: | 
+            9.x.x
+            8.x.x
+            7.x.x
+            6.x.x
+
+      - name: Build
+        run: dotnet build ${{inputs.project_path}} -c Release
+
+      - name: Pack NuGet package
+        run: dotnet pack ${{inputs.project_path}} -c Release --output ${{ github.workspace }}/nupkg
+
+      - name: Push NuGet package
+        run: |
+          dotnet nuget push ${{ github.workspace }}/nupkg/*.nupkg \
+            --api-key ${{ secrets.NUGET_API_KEY }} \
+            --source $NUGET_SOURCE
