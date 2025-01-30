@@ -1,5 +1,3 @@
-name: Deploy package to nuget
-
 on:
   workflow_call:
     secrets:
