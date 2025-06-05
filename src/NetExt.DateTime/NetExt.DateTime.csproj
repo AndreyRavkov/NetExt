@@ -8,7 +8,7 @@
     <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0;net8.0;net9.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>NetExt.DateTime</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>Andrey and other contributors</Authors>
     <Description>The NetExt.DateTime package provides a set of extension methods to simplify working with DateTime in .NET. It includes utilities for converting between Unix time (milliseconds) and DateTime, as well as specifying the DateTimeKind explicitly. This lightweight and efficient library enhances DateTime manipulation, ensuring better clarity and correctness in handling time-related data.</Description>
     <PackageProjectUrl>https://github.com/AndreyRavkov/NetExt</PackageProjectUrl>
@@ -24,6 +24,7 @@
     <PackageReleaseNotes>
       v1.0.0: migrate to separate nuget package from NetExt.Core
       v1.0.1: the final version after split
+      v1.0.2: add method ToUtcDateTimeExt support unit time in seconds 
     </PackageReleaseNotes>
   </PropertyGroup>
 

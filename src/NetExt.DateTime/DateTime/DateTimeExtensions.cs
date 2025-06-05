@@ -3,13 +3,23 @@ namespace NetExt.DateTime;
 public static class DateTimeExtensions
 {
     /// <summary>
-    /// Convert unix time milliseconds to DateTime
+    /// Convert unix time milliseconds to DateTime in UTC
     /// </summary>
     /// <param name="unixTimeMilliseconds">source unix time milliseconds</param>
     /// <returns>DateTime</returns>
     public static System.DateTime ToUtcDateTimeExt(this long unixTimeMilliseconds)
     {
         return DateTimeOffset.FromUnixTimeMilliseconds(unixTimeMilliseconds).UtcDateTime;
+    }
+
+    /// <summary>
+    /// Convert unix time seconds to DateTime in UTC
+    /// </summary>
+    /// <param name="unixTimeSeconds">source unit time seconds</param>
+    /// <returns></returns>
+    public static System.DateTime ToUtcDateTimeExt(this int unixTimeSeconds)
+    {
+        return DateTimeOffset.FromUnixTimeSeconds(unixTimeSeconds).UtcDateTime;
     }
     
     /// <summary>
