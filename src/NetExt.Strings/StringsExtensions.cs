@@ -9,7 +9,15 @@ public static class StringsExtensions
     {
         return str?.Trim();
     }
+
+    public static bool IsEmptyExt(this string? str, bool checkWhiteSpace = false)
+    {
+        return checkWhiteSpace
+                   ? string.IsNullOrEmpty(str) && string.IsNullOrWhiteSpace(str)
+                   : string.IsNullOrEmpty(str);
+    }
     
+    [Obsolete("Use IsEmptyExt() instead")]
     public static bool IsNullOrVoidExt(this string? str, bool checkWhiteSpace = false, bool trim = false)
     {
         if (trim)
@@ -84,7 +92,7 @@ public static class StringsExtensions
     /// <returns>string</returns>
     public static string ReplaceExt(this string? str, Dictionary<string, string> replacements)
     {
-        if (str.IsNullOrVoidExt(trim: true))
+        if (str.IsEmptyExt())
         {
             return string.Empty;
         }
@@ -92,7 +100,7 @@ public static class StringsExtensions
         var result = new StringBuilder(str);
         foreach (var replacement in replacements)
         {
-            if (!replacement.Key.IsNullOrVoidExt())
+            if (!replacement.Key.IsEmptyExt())
             {
                 result = result.Replace(replacement.Key, replacement.Value);
             }
@@ -110,7 +118,7 @@ public static class StringsExtensions
     public static string ToBase64Ext(this string str, Encoding? encoding = null)
     {
         encoding ??= Encoding.UTF8;
-        return str.IsNullOrVoidExt() ? str : Convert.ToBase64String(encoding.GetBytes(str));
+        return str.IsEmptyExt() ? str : Convert.ToBase64String(encoding.GetBytes(str));
     }
     
     /// <summary>
@@ -122,7 +130,7 @@ public static class StringsExtensions
     public static string FromBase64Ext(this string str, Encoding? encoding = null)
     {
         encoding ??= Encoding.UTF8;
-        return str.IsNullOrVoidExt() ? str : encoding.GetString(Convert.FromBase64String(str));
+        return str.IsEmptyExt() ? str : encoding.GetString(Convert.FromBase64String(str));
     }
 
     /// <summary>
@@ -143,7 +151,7 @@ public static class StringsExtensions
     /// <returns>int?</returns>
     public static int? GetOnlyDigitsExt(this string str)
     {
-        if (str.IsNullOrVoidExt())
+        if (str.IsEmptyExt())
         {
             return null;
         }
@@ -161,7 +169,7 @@ public static class StringsExtensions
     /// <returns>string</returns>
     public static string ReplaceCharsExt(this string? str, char[] chars, string replaceSymbol = "")
     {
-        if (str.IsNullOrVoidExt())
+        if (str.IsEmptyExt())
         {
             return str ?? string.Empty;
         }
