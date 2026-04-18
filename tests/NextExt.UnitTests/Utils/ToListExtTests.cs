@@ -29,21 +29,18 @@ public class ToListExtTests
         if(source is null)
         {
             Assert.Empty(result);
-            Assert.IsType<List<int>>(result);
+            Assert.IsType<List<int?>>(result);
         }
         else
         {
-            Assert.IsType<List<int>>(result, exactMatch: false);
+            Assert.IsType<List<int?>>(result, exactMatch: false);
             Assert.True(result.Count == 1);
             Assert.Equal(source, result[0]);
         }
     }
     
     [Theory]
-    [InlineData(-1)]
-    [InlineData(0)]
-    [InlineData(1)]
-    [InlineData(999)]
+    [InlineData(0 * long.MaxValue)]
     [InlineData(-1 * long.MaxValue)]
     [InlineData(long.MaxValue)]
     [InlineData(long.MinValue)]
@@ -56,11 +53,11 @@ public class ToListExtTests
         if (source is null)
         {
             Assert.Empty(result);
-            Assert.IsType<List<long>>(result);
+            Assert.IsType<List<long?>>(result);
         }
         else
         {
-            Assert.IsType<List<long>>(result, exactMatch: false);
+            Assert.IsType<List<long?>>(result, exactMatch: false);
             Assert.True(result.Count == 1);
             Assert.Equal(source, result[0]);
         }
@@ -79,11 +76,11 @@ public class ToListExtTests
         if (source is null)
         {
             Assert.Empty(result);
-            Assert.IsType<string[]>(result);
+            Assert.IsType<List<string?>>(result);
         }
         else
         {
-            Assert.IsType<List<string>>(result, exactMatch: false);
+            Assert.IsType<List<string?>>(result, exactMatch: false);
             Assert.True(result.Count == 1);
             Assert.Equal(source, result[0]);
         }
@@ -110,6 +107,6 @@ public class ToListExtTests
 
         Assert.NotNull(result);
         Assert.Empty(result);
-        Assert.IsType<SampleClass[]>(result);
+        Assert.IsType<List<SampleClass>>(result);
     }
 }

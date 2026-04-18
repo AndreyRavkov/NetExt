@@ -8,9 +8,9 @@ public static class CollectionsExtensions
     /// <param name="source">Source element to convert</param>
     /// <typeparam name="T">The type of the element in the list.</typeparam>
     /// <returns></returns>
-    public static IList<T> ToListExt<T>(this T? source)
+    public static List<T> ToListExt<T>(this T? source)
     {
-        return source is null ? Array.Empty<T>() : new List<T> { source };
+        return source is null ? [] : [source];
     }
 
     /// <summary>
