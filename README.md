@@ -72,10 +72,10 @@ The `MayBe<T>` is a lightweight, readonly wrapper for managing nullable referenc
 ```csharp
 interface IRepository
 {
-    Task<MayBe<UserEntity>> GetAsync(int id); 
+    Task<MayBe<Entity>> GetAsync(int id); 
 }
 ...
-MayBe<UserEntity> entity = await IRepository.GetAsync(123);
+MayBe<Entity> entity = await _repository.GetAsync(123);
 // check that entity exists or not
 if (entity.Exists)
 {
@@ -83,9 +83,9 @@ if (entity.Exists)
 }
 ...
 // OR
-var entity = (await IRepository.GetAsync(123)).GetOrThrow("Entity");
+var entity = (await _repository.GetAsync(123)).GetOrThrow("Entity");
 // OR
-var entity = await IRepository.GetAsync(123).GetOrThrow("Entity");
+var entity = await _repository.GetAsync(123).GetOrThrow("Entity");
 ...
 
 // return entity or throw exception
@@ -106,7 +106,7 @@ Exceptions:
 - ForbiddenExceptionExt: Represents an HTTP 403 (Forbidden) error for unauthorized access attempts.
 - NotFoundExceptionExt: Represents an HTTP 404 (Not Found) error for missing resources.
 - UnAuthorizationExceptionExt: Represents an HTTP 401 (Unauthorized) error for failed authentication.
-- RequireExceptionExt: Represents error for failed Reuire validation.
+- RequireExceptionExt: Represents error for failed Require validation.
 
 #### Namespace: NetExt.Models.Enums
 The namespace provides an extension method for enums, allowing seamless conversion of enum values to their underlying integer representation. This simplifies handling enums in scenarios where integer values are required, such as database storage, serialization, or calculations.
@@ -174,11 +174,12 @@ Example Usages:
 ```csharp
 using NetExt.Strings;
 
-// Trim a string
-var trimmed = "  Hello World  ".TrimExt(); // Output: "Hello World"
+// extensions to not write string.<something>
+" string ".IsNullOrEmptyExt(); -> string.IsNullOrEmpty(str);
 
-// Validate string
-var isNullOrVoid = "".IsNullOrVoidExt(); // Output: true
+"   ".IsNullOrWhiteSpaceExt(); -> string.IsNullOrWhiteSpace(str);
+
+" string ".IsNotNullOrEmptyOrWhiteSpaceExt(); -> string.IsNullOrEmpty(str) || string.IsNullOrWhiteSpace(str);
 
 // Replace keys in a string
 var replacements = new Dictionary<string, string> { { "World", "Universe" } };

@@ -5,35 +5,26 @@ namespace NetExt.Strings;
 
 public static class StringsExtensions
 {
-    public static string? TrimExt(this string? str)
+    public static bool IsNullOrEmptyExt(this string? str)
     {
-        return str?.Trim();
-    }
-
-    public static bool IsEmptyExt(this string? str, bool checkWhiteSpace = false)
-    {
-        return checkWhiteSpace
-                   ? string.IsNullOrEmpty(str) && string.IsNullOrWhiteSpace(str)
-                   : string.IsNullOrEmpty(str);
+        return string.IsNullOrEmpty(str);
     }
     
-    [Obsolete("Use IsEmptyExt() instead")]
-    public static bool IsNullOrVoidExt(this string? str, bool checkWhiteSpace = false, bool trim = false)
+    public static bool IsNullOrWhiteSpaceExt(this string? str)
     {
-        if (trim)
-        {
-            str = str.TrimExt();
-        }
-        return checkWhiteSpace
-                   ? string.IsNullOrEmpty(str) && string.IsNullOrWhiteSpace(str)
-                   : string.IsNullOrEmpty(str);
+        return string.IsNullOrWhiteSpace(str);
+    }
+    
+    public static bool IsNotNullOrEmptyOrWhiteSpaceExt(this string? str)
+    {
+        return string.IsNullOrEmpty(str) || string.IsNullOrWhiteSpace(str);
     }
     
     public static bool HasMaxLengthExt(this string? str,
                                  int maxLength, 
                                  Action? onNegativeAction = null)
     {
-        str = str?.TrimExt();
+        str = str?.Trim();
         var result = (str?.Length ?? 0) <= maxLength;
         if (str is null || !result)
         {
@@ -92,7 +83,7 @@ public static class StringsExtensions
     /// <returns>string</returns>
     public static string ReplaceExt(this string? str, Dictionary<string, string> replacements)
     {
-        if (str.IsEmptyExt())
+        if (str.IsNullOrEmptyExt())
         {
             return string.Empty;
         }
@@ -100,7 +91,7 @@ public static class StringsExtensions
         var result = new StringBuilder(str);
         foreach (var replacement in replacements)
         {
-            if (!replacement.Key.IsEmptyExt())
+            if (!replacement.Key.IsNullOrEmptyExt())
             {
                 result = result.Replace(replacement.Key, replacement.Value);
             }
@@ -118,7 +109,7 @@ public static class StringsExtensions
     public static string ToBase64Ext(this string str, Encoding? encoding = null)
     {
         encoding ??= Encoding.UTF8;
-        return str.IsEmptyExt() ? str : Convert.ToBase64String(encoding.GetBytes(str));
+        return str.IsNullOrEmptyExt() ? str : Convert.ToBase64String(encoding.GetBytes(str));
     }
     
     /// <summary>
@@ -130,7 +121,7 @@ public static class StringsExtensions
     public static string FromBase64Ext(this string str, Encoding? encoding = null)
     {
         encoding ??= Encoding.UTF8;
-        return str.IsEmptyExt() ? str : encoding.GetString(Convert.FromBase64String(str));
+        return str.IsNullOrEmptyExt() ? str : encoding.GetString(Convert.FromBase64String(str));
     }
 
     /// <summary>
@@ -151,7 +142,7 @@ public static class StringsExtensions
     /// <returns>int?</returns>
     public static int? GetOnlyDigitsExt(this string str)
     {
-        if (str.IsEmptyExt())
+        if (str.IsNullOrEmptyExt())
         {
             return null;
         }
@@ -169,7 +160,7 @@ public static class StringsExtensions
     /// <returns>string</returns>
     public static string ReplaceCharsExt(this string? str, char[] chars, string replaceSymbol = "")
     {
-        if (str.IsEmptyExt())
+        if (str.IsNullOrEmptyExt())
         {
             return str ?? string.Empty;
         }
