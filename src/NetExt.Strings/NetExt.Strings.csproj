@@ -8,7 +8,7 @@
     <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0;net8.0;net9.0;net10.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>NetExt.Strings</PackageId>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <Authors>Andrey and other contributors</Authors>
     <Description>NetExt.Strings is a powerful utility library that extends string manipulation capabilities in .NET. It provides a variety of robust, easy-to-use methods for trimming, validating, transforming, encoding, and replacing string values. This package simplifies common string operations, improves code readability, and enhances productivity for .NET developers.</Description>
     <PackageProjectUrl>https://github.com/AndreyRavkov/NetExt</PackageProjectUrl>
@@ -24,6 +24,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>icon.png</PackageIcon>
     <PackageReleaseNotes>
+      v1.0.4: Remove `TrimExt` extension due to low usage. Split `IsEmptyExt` extension to `IsNullOrEmptyExt`, `IsNullOrWhiteSpaceExt`, `IsNotNullOrEmptyOrWhiteSpaceExt`
       v1.0.3: Add .NET 10 support
       v1.0.2: add IsEmpty extension, as replacment for
       v1.0.1: the final version after split

@@ -5,16 +5,19 @@ namespace NetExt.Strings;
 
 public static class StringsExtensions
 {
-    public static string? TrimExt(this string? str)
+    public static bool IsNullOrEmptyExt(this string? str)
     {
-        return str?.Trim();
+        return string.IsNullOrEmpty(str);
     }
-
-    public static bool IsEmptyExt(this string? str, bool checkWhiteSpace = false)
+    
+    public static bool IsNullOrWhiteSpaceExt(this string? str)
     {
-        return checkWhiteSpace
-                   ? string.IsNullOrEmpty(str) && string.IsNullOrWhiteSpace(str)
-                   : string.IsNullOrEmpty(str);
+        return string.IsNullOrWhiteSpace(str);
+    }
+    
+    public static bool IsNotNullOrEmptyOrWhiteSpaceExt(this string? str)
+    {
+        return string.IsNullOrEmpty(str) && string.IsNullOrWhiteSpace(str);
     }
     
     [Obsolete("Use IsEmptyExt() instead")]
