@@ -28,6 +28,7 @@
     <ProjectReference Include="..\..\src\NetExt.MayBe\NetExt.MayBe.csproj" />
     <ProjectReference Include="..\..\src\NetExt.Strings\NetExt.Strings.csproj" />
     <ProjectReference Include="..\..\src\NetExt.Require\NetExt.Require.csproj" />
+    <ProjectReference Include="..\..\src\NetExt.Utils\NetExt.Utils.csproj" />
   </ItemGroup>
   
 </Project>
