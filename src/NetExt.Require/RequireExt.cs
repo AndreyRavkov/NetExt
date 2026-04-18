@@ -10,10 +10,10 @@ namespace NetExt.Require;
 public static class RequireExt
 {
     /// <summary>
-    /// Require that object should be not null
+    /// Require that the object should be not null
     /// </summary>
     /// <param name="value">source object</param>
-    /// <param name="errorOrObjectName">if param not set, then for .NET 6+ it will contain nameof(value) variable</param>
+    /// <param name="errorOrObjectName">if param not set, then for .NET 6+ it will contain the nameof (value) variable</param>
     public static void ThrowIfNull(
         object? value,
         #if NETSTANDARD2_0 || NETSTANDARD2_1
@@ -27,11 +27,11 @@ public static class RequireExt
     }
     
     /// <summary>
-    /// Require that object should be not null
+    /// Require that the object should be not null
     /// </summary>
     /// <param name="value">source object</param>
     /// <param name="exceptionType">exception type</param>
-    /// <param name="errorOrObjectName">if param not set, then for .NET 6+ it will contain nameof(value) variable</param>
+    /// <param name="errorOrObjectName">if param not set, then for .NET 6+ it will contain the nameof (value) variable</param>
     public static void ThrowIfNull(
         object? value,
         ExceptionTypeExt exceptionType,

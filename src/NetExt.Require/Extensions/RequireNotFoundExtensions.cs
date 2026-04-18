@@ -9,10 +9,10 @@ namespace NetExt.Require.Extensions;
 public static class RequireNotFoundExtensions
 {
     /// <summary>
-    /// Require that object should be not null
+    /// Require that the object should be not null
     /// </summary>
     /// <param name="obj">source object</param>
-    /// <param name="errorOrObjectName">if param not set, then for .NET 6+ it will contain nameof(value) variable</param>
+    /// <param name="errorOrObjectName">if param not set, then for .NET 6+ it will contain the nameof (value) variable</param>
     /// <exception cref="NotFoundExceptionExt"></exception>
     public static void ThrowNotFoundIfNullExt<T>(
         this T? obj,
@@ -20,8 +20,7 @@ public static class RequireNotFoundExtensions
         string? errorOrObjectName = null
         #endif
         #if NET6_0_OR_GREATER
-        [CallerArgumentExpression(nameof(obj))]
-        string? errorOrObjectName = null
+        [CallerArgumentExpression(nameof(obj))] string? errorOrObjectName = null
         #endif
     ) {
         RequireExt.ThrowIfNull(obj, ExceptionTypeExt.NotFound, errorOrObjectName);
