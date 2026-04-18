@@ -72,10 +72,10 @@ The `MayBe<T>` is a lightweight, readonly wrapper for managing nullable referenc
 ```csharp
 interface IRepository
 {
-    Task<MayBe<UserEntity>> GetAsync(int id); 
+    Task<MayBe<Entity>> GetAsync(int id); 
 }
 ...
-MayBe<UserEntity> entity = await IRepository.GetAsync(123);
+MayBe<Entity> entity = await _repository.GetAsync(123);
 // check that entity exists or not
 if (entity.Exists)
 {
