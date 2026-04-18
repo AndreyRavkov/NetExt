@@ -8,7 +8,7 @@
     <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0;net8.0;net9.0;net10.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>NetExt.Utils</PackageId>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <Authors>Andrey and other contributors</Authors>
     <Description>The NetExt.Utils package provides lightweight and efficient extensions for collections and common utilities in .NET. Designed to enhance developer productivity, these extensions simplify handling collections and validating input values.</Description>
     <PackageProjectUrl>https://github.com/AndreyRavkov/NetExt</PackageProjectUrl>
