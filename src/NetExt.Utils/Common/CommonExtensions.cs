@@ -12,10 +12,10 @@ public static class CommonExtensions
         string? name = null
         #endif
         #if NET6_0_OR_GREATER
-        [CallerArgumentExpression(nameof(value))]
-        string? name = null
+        [CallerArgumentExpression(nameof(value))] string? name = null
         #endif
-    ) {
+    )
+    {
         return value ?? throw new ArgumentNullException($"Passed null value for required '{name}' param.");
     }
 }
