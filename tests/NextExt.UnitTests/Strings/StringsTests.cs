@@ -6,44 +6,73 @@ namespace NextExt.UnitTests.Strings;
 public class StringsTests
 {
     [Theory]
-    [InlineData(null, null)]
-    [InlineData("", "")]
-    [InlineData(" abc", "abc")]
-    [InlineData("  abc", "abc")]
-    [InlineData("abc  ", "abc")]
-    [InlineData("  \r abc  ", "abc")]
-    [InlineData("  \n abc  ", "abc")]
-    [InlineData("  abc  \r ", "abc")]
-    [InlineData("  abc  \n ", "abc")]
-    [InlineData(" \r abc  \n ", "abc")]
-    [InlineData(" \n abc  \n ", "abc")]
-    [InlineData(" \r abc  \r ", "abc")]
-    [InlineData(" \r\n abc  \r\n ", "abc")]
-    [InlineData(" \n\r abc  \n\r ", "abc")]
-    public void TrimExt_Tests(string? input, string? expected)
+    [InlineData(null, true)]
+    [InlineData("", true)]
+    [InlineData("   ", false)]
+    [InlineData("\r", false)]
+    [InlineData("\n", false)]
+    [InlineData("\r\n", false)]
+    [InlineData("\n\r", false)]
+    [InlineData(" abc", false)]
+    [InlineData("  abc", false)]
+    [InlineData("abc  ", false)]
+    [InlineData("  \r abc  ", false)]
+    [InlineData("  \n abc  ", false)]
+    [InlineData("  abc  \r ", false)]
+    [InlineData("  abc  \n ", false)]
+    [InlineData(" \r abc  \n ", false)]
+    [InlineData(" \n abc  \n ", false)]
+    [InlineData(" \r abc  \r ", false)]
+    [InlineData(" \r\n abc  \r\n ", false)]
+    [InlineData(" \n\r abc  \n\r ", false)]
+    public void IsNullOrEmptyExt_Tests(string? input, bool expectedResult)
     {
-        var result = input.TrimExt();
+        var result = input.IsNullOrEmptyExt();
         
-        Assert.Equal(expected, result);
+        Assert.Equal(expectedResult, result);
     }
     
     [Theory]
-    [InlineData("\r\n", false)]
-    [InlineData("\r\n", false, true)]
-    [InlineData("abc", false)]
-    [InlineData("abc", false, true)]
-    [InlineData("", true)]
-    [InlineData("", true, true)]
-    [InlineData(" ", false)]
-    [InlineData(" ", false, true)]
-    [InlineData("   ", false)]
-    [InlineData("   ", false, true)]
     [InlineData(null, true)]
-    [InlineData(null, true, true)]
-    public void IsNullOrVoidExt_Tests(string? input, bool expected, bool includeWhiteSpace = false)
+    [InlineData("", true)]
+    [InlineData(" ", true)]
+    [InlineData("   ", true)]
+    [InlineData("\r", true)]
+    [InlineData("\n", true)]
+    [InlineData("\r\n", true)]
+    [InlineData("\n\r", true)]
+    [InlineData("abc", false)]
+    public void IsNullOrWhiteSpaceExt_Tests(string? input, bool expectedResult)
     {
-        var result = input.IsEmptyExt(includeWhiteSpace);
+        var result = input.IsNullOrWhiteSpaceExt();
         
-        Assert.Equal(expected, result);
+        Assert.Equal(expectedResult, result);
+    }
+    
+    [Theory]
+    [InlineData(null, true)]
+    [InlineData("", true)]
+    [InlineData("   ", true)]
+    [InlineData("\r", true)]
+    [InlineData("\n", true)]
+    [InlineData("\r\n", true)]
+    [InlineData("\n\r", true)]
+    [InlineData(" abc", false)]
+    [InlineData("  abc", false)]
+    [InlineData("abc  ", false)]
+    [InlineData("  \r abc  ", false)]
+    [InlineData("  \n abc  ", false)]
+    [InlineData("  abc  \r ", false)]
+    [InlineData("  abc  \n ", false)]
+    [InlineData(" \r abc  \n ", false)]
+    [InlineData(" \n abc  \n ", false)]
+    [InlineData(" \r abc  \r ", false)]
+    [InlineData(" \r\n abc  \r\n ", false)]
+    [InlineData(" \n\r abc  \n\r ", false)]
+    public void IsNotNullOrEmptyOrWhiteSpaceExt_Tests(string? input, bool expectedResult)
+    {
+        var result = input.IsNotNullOrEmptyOrWhiteSpaceExt();
+        
+        Assert.Equal(expectedResult, result);
     }
 }

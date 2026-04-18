@@ -24,7 +24,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>icon.png</PackageIcon>
     <PackageReleaseNotes>
-      v1.0.4: Remove `TrimExt` extension due to low usage. Split `IsEmptyExt` extension to `IsNullOrEmptyExt`, `IsNullOrWhiteSpaceExt`, `IsNotNullOrEmptyOrWhiteSpaceExt`
+      v1.0.4: Remove `TrimExt` extension due to low usage, remove obsolete `IsNullOrVoidExt` extension. Split `IsEmptyExt` extension to `IsNullOrEmptyExt`, `IsNullOrWhiteSpaceExt`, `IsNotNullOrEmptyOrWhiteSpaceExt`
       v1.0.3: Add .NET 10 support
       v1.0.2: add IsEmpty extension, as replacment for
       v1.0.1: the final version after split
