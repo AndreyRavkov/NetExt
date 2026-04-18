@@ -22,6 +22,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>icon.png</PackageIcon>
     <PackageReleaseNotes>
+      v1.0.3: Improve ToListExt extension. Remove ForEachExt extension. Add new AsReadOnlyListExt and AsListExt without duplication data.
       v1.0.2: Add .NET 10 support
       v1.0.1: the final version after split
       v1.0.0: migrate to separate nuget package from NetExt.Core

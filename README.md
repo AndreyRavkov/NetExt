@@ -206,18 +206,17 @@ The namespace class provides utility methods for working with collections in a m
 ### ForEach Extension
 The ForEachExt method is an extension for IEnumerable<T> that simplifies iterating over a collection by applying an action to each element. It reduces boilerplate code for loops, making your code cleaner and more expressive.
 ```csharp
-
 var variable = 99999;
 Console.WriteLine(variable.ToListExt());
 // Output: List<int>() { 99999 }
 
-var numbers = new List<int> { 1, 2, 3 };
-// Apply an action to each element
-numbers.ForEachExt(number => Console.WriteLine(number * 2));
+IEnumerable numbers = new List<int> { 1, 2, 3 };
+// 
+var result = numbers.AsReadOnlyListExt();
+var result2 = numbers.AsListExt()
 // Output:
-// 2
-// 4
-// 6
+// result is IReadOnlyList<int>()
+// result2 is List<int>()
 ```
 
 ### Namespace: NetExt.Utils.Common

@@ -134,7 +134,7 @@ public static class StringsExtensions
     }
 
     /// <summary>
-    /// Join collection of strings to one string with
+    /// Join a collection of strings to one string with
     /// </summary>
     /// <param name="value">source collection</param>
     /// <param name="separator"></param>
@@ -161,7 +161,7 @@ public static class StringsExtensions
     }
     
     /// <summary>
-    /// Replace chars in source string
+    /// Replace chars in a source string
     /// </summary>
     /// <param name="str">source string</param>
     /// <param name="chars">chars to replace</param>
@@ -184,7 +184,7 @@ public static class StringsExtensions
     }
     
     /// <summary>
-    /// Replace chars in source string
+    /// Replace chars in a source string
     /// </summary>
     /// <param name="str">source string</param>
     /// <param name="chars">string of chars to replace</param>
