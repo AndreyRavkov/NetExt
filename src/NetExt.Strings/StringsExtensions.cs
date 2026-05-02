@@ -15,7 +15,7 @@ public static class StringsExtensions
         return string.IsNullOrWhiteSpace(str);
     }
     
-    public static bool IsNotNullOrEmptyOrWhiteSpaceExt(this string? str)
+    public static bool IsNullOrEmptyOrWhiteSpaceExt(this string? str)
     {
         return string.IsNullOrEmpty(str) || string.IsNullOrWhiteSpace(str);
     }

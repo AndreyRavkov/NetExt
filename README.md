@@ -179,7 +179,7 @@ using NetExt.Strings;
 
 "   ".IsNullOrWhiteSpaceExt(); -> string.IsNullOrWhiteSpace(str);
 
-" string ".IsNotNullOrEmptyOrWhiteSpaceExt(); -> string.IsNullOrEmpty(str) || string.IsNullOrWhiteSpace(str);
+" string ".IsNullOrEmptyOrWhiteSpaceExt(); -> string.IsNullOrEmpty(str) || string.IsNullOrWhiteSpace(str);
 
 // Replace keys in a string
 var replacements = new Dictionary<string, string> { { "World", "Universe" } };

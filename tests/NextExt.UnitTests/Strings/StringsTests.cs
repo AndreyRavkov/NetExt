@@ -71,7 +71,7 @@ public class StringsTests
     [InlineData(" \n\r abc  \n\r ", false)]
     public void IsNotNullOrEmptyOrWhiteSpaceExt_Tests(string? input, bool expectedResult)
     {
-        var result = input.IsNotNullOrEmptyOrWhiteSpaceExt();
+        var result = input.IsNullOrEmptyOrWhiteSpaceExt();
         
         Assert.Equal(expectedResult, result);
     }
