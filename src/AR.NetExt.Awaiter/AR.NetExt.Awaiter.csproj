@@ -7,7 +7,7 @@
     <WarningsAsErrors>nullable</WarningsAsErrors>
     <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0;net8.0;net9.0;net10.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageId>AR.NetExt.Awaiter</PackageId>
+    <PackageId>ARNetExt.Awaiter</PackageId>
     <Version>2.0.0</Version>
     <Authors>Andrey and other contributors</Authors>
     <Description>A lightweight utility for managing multiple asynchronous tasks with ease. TaskAwaiter simplifies combining, executing, and awaiting tasks with mixed return types, offering tuple-based result handling and support for up to 20 tasks. Enhance your asynchronous workflows with improved readability and reduced boilerplate code.</Description>
