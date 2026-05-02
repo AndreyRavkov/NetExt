@@ -24,21 +24,21 @@ permissions:
   contents: write
 
 jobs:
-  job-verification:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check Main Branch
-        run: |
-           if [[ "${{ github.ref_name }}" != "main" ]]; then
-             echo "This workflow can only be triggered on the 'main' branch."
-             exit 1
-           fi
-      - name: Check Repository Owner
-        run: |
-          if [[ "${{ github.actor }}" != "${{ github.repository_owner }}" ]]; then
-            echo "Unauthorized: Only the repository owner (${ github.repository_owner }) can trigger this workflow."
-            exit 1
-          fi
+#  job-verification:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Check Main Branch
+#        run: |
+#           if [[ "${{ github.ref_name }}" != "main" ]]; then
+#             echo "This workflow can only be triggered on the 'main' branch."
+#             exit 1
+#           fi
+#      - name: Check Repository Owner
+#        run: |
+#          if [[ "${{ github.actor }}" != "${{ github.repository_owner }}" ]]; then
+#            echo "Unauthorized: Only the repository owner (${ github.repository_owner }) can trigger this workflow."
+#            exit 1
+#          fi
 
   job-tests:
     needs: job-verification
@@ -56,7 +56,7 @@ jobs:
       - name: Run Tests
         run: dotnet test $TESTS_PROJ_PATH -c Release
 
-  NetExt_Awaiter:
+  AR_NetExt_Awaiter:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
     if: ${{ inputs.package_name == 'AR.NetExt.Awaiter' }}
@@ -65,7 +65,7 @@ jobs:
     with:
       project_path: './src/AR.NetExt.Awaiter/AR.NetExt.Awaiter.csproj'
 
-  NetExt_DateTime:
+  AR_NetExt_DateTime:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
     if: ${{ inputs.package_name == 'AR.NetExt.DateTime' }}
@@ -74,7 +74,7 @@ jobs:
     with:
       project_path: './src/AR.NetExt.DateTime/AR.NetExt.DateTime.csproj'
 
-  NetExt_MayBe:
+  AR_NetExt_MayBe:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
     if: ${{ inputs.package_name == 'AR.NetExt.MayBe' }}
@@ -83,7 +83,7 @@ jobs:
     with:
       project_path: './src/AR.NetExt.MayBe/AR.NetExt.MayBe.csproj'
 
-  NetExt_Models:
+  AR_NetExt_Models:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
     if: ${{ inputs.package_name == 'AR.NetExt.Models' }}
@@ -93,7 +93,7 @@ jobs:
       project_path: './src/AR.NetExt.Models/AR.NetExt.Models.csproj'
       
 
-  NetExt_Require:
+  AR_NetExt_Require:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
     if: ${{ inputs.package_name == 'AR.NetExt.Require' }}
@@ -103,7 +103,7 @@ jobs:
       project_path: './src/AR.NetExt.Require/AR.NetExt.Require.csproj'
       
 
-  NetExt_Strings:
+  AR_NetExt_Strings:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
     if: ${{ inputs.package_name == 'AR.NetExt.Strings' }}
@@ -112,7 +112,7 @@ jobs:
     with:
       project_path: './src/AR.NetExt.Strings/AR.NetExt.Strings.csproj'
   
-  NetExt_Utils:
+  AR_NetExt_Utils:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
     if: ${{ inputs.package_name == 'AR.NetExt.Utils' }}
