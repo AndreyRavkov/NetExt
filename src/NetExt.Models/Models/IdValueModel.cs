@@ -1,22 +1,22 @@
 namespace NetExt.Models;
 
 [Serializable]
-public class IdNameModel<T, TY> : IEqualityComparer<IdNameModel<T, TY>>
+public class IdValueModel<T, TY> : IEqualityComparer<IdValueModel<T, TY>>
 {
-    public IdNameModel(T id, TY name)
+    public IdValueModel(T id, TY value)
     {
         Id = id;
-        Name = name;
+        Value = value;
     }
 
-    public IdNameModel()
+    public IdValueModel()
     {
     }
     
     public T Id { get; set; } = default!;
-    public TY Name { get; set; } = default!;
+    public TY Value { get; set; } = default!;
     
-    public virtual bool Equals(IdNameModel<T, TY>? x, IdNameModel<T, TY>? y)
+    public virtual bool Equals(IdValueModel<T, TY>? x, IdValueModel<T, TY>? y)
     {
         if (x is null && y is null)
         {
@@ -34,7 +34,7 @@ public class IdNameModel<T, TY> : IEqualityComparer<IdNameModel<T, TY>>
         return x.Id!.Equals(y.Id);
     }
 
-    public virtual int GetHashCode(IdNameModel<T, TY> obj)
+    public virtual int GetHashCode(IdValueModel<T, TY> obj)
     {
         return obj.Id?.GetHashCode() ?? 0;
     }

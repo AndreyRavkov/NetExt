@@ -98,6 +98,7 @@ var result = entity.AssumeExists("error message");
 The package provides a set of core models and exceptions designed to simplify application development by offering reusable structures and standardized error handling. This package ensures consistency and clarity in managing data and exceptions across your application.
 
 Models:
+- IdValueModel: A simple model containing an Id and Value, ideal for representing key-value pairs or lookup entities.
 - IdNameModel: A simple model containing an Id and Name, ideal for representing key-value pairs or lookup entities.
 - ListResult: A utility model for returning paginated or list-based results, commonly used in API responses. 
 
