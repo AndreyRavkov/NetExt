@@ -28,7 +28,7 @@ public class IdNameModelTests
     {
         var model = new IdNameModel<int, string>(1, "original")
         {
-            Value = "updated",
+            Name = "updated",
         };
 
         Assert.Equal("updated", model.Name);
