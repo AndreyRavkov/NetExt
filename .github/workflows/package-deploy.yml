@@ -8,13 +8,13 @@ on:
         required: true
         type: choice
         options:
-          - 'AR.NetExt.Awaiter'
-          - 'AR.NetExt.DateTime'
-          - 'AR.NetExt.MayBe'
-          - 'AR.NetExt.Models'
-          - 'AR.NetExt.Require'
-          - 'AR.NetExt.Strings'
-          - 'AR.NetExt.Utils'
+          - 'ARNetExt.Awaiter'
+          - 'ARNetExt.DateTime'
+          - 'ARNetExt.MayBe'
+          - 'ARNetExt.Models'
+          - 'ARNetExt.Require'
+          - 'ARNetExt.Strings'
+          - 'ARNetExt.Utils'
 
 env:
   NUGET_SOURCE: https://api.nuget.org/v3/index.json
@@ -56,66 +56,66 @@ jobs:
       - name: Run Tests
         run: dotnet test $TESTS_PROJ_PATH -c Release
 
-  AR_NetExt_Awaiter:
+  ARNetExt_Awaiter:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
-    if: ${{ inputs.package_name == 'AR.NetExt.Awaiter' }}
+    if: ${{ inputs.package_name == 'ARNetExt.Awaiter' }}
     secrets:
       NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
     with:
       project_path: './src/AR.NetExt.Awaiter/AR.NetExt.Awaiter.csproj'
 
-  AR_NetExt_DateTime:
+  ARNetExt_DateTime:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
-    if: ${{ inputs.package_name == 'AR.NetExt.DateTime' }}
+    if: ${{ inputs.package_name == 'ARNetExt.DateTime' }}
     secrets:
       NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
     with:
       project_path: './src/AR.NetExt.DateTime/AR.NetExt.DateTime.csproj'
 
-  AR_NetExt_MayBe:
+  ARNetExt_MayBe:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
-    if: ${{ inputs.package_name == 'AR.NetExt.MayBe' }}
+    if: ${{ inputs.package_name == 'ARNetExt.MayBe' }}
     secrets:
       NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
     with:
       project_path: './src/AR.NetExt.MayBe/AR.NetExt.MayBe.csproj'
 
-  AR_NetExt_Models:
+  ARNetExt_Models:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
-    if: ${{ inputs.package_name == 'AR.NetExt.Models' }}
+    if: ${{ inputs.package_name == 'ARNetExt.Models' }}
     secrets:
       NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
     with:
       project_path: './src/AR.NetExt.Models/AR.NetExt.Models.csproj'
       
 
-  AR_NetExt_Require:
+  ARNetExt_Require:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
-    if: ${{ inputs.package_name == 'AR.NetExt.Require' }}
+    if: ${{ inputs.package_name == 'ARNetExt.Require' }}
     secrets:
       NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
     with:
       project_path: './src/AR.NetExt.Require/AR.NetExt.Require.csproj'
       
 
-  AR_NetExt_Strings:
+  ARNetExt_Strings:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
-    if: ${{ inputs.package_name == 'AR.NetExt.Strings' }}
+    if: ${{ inputs.package_name == 'ARNetExt.Strings' }}
     secrets:
       NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
     with:
       project_path: './src/AR.NetExt.Strings/AR.NetExt.Strings.csproj'
   
-  AR_NetExt_Utils:
+  ARNetExt_Utils:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
-    if: ${{ inputs.package_name == 'AR.NetExt.Utils' }}
+    if: ${{ inputs.package_name == 'ARNetExt.Utils' }}
     secrets:
       NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
     with:
