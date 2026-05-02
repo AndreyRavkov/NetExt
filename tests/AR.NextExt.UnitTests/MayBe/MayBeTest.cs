@@ -1,4 +1,4 @@
-namespace NextExt.UnitTests.MayBe;
+namespace AR.NextExt.UnitTests.MayBe;
 
 internal class MayBeTest
 {

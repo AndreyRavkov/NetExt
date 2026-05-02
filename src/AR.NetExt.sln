@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_solutionItems", "_solution
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{7A890C71-1AD5-4CB3-BA2A-1AD511812062}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NextExt.UnitTests", "..\tests\NextExt.UnitTests\NextExt.UnitTests.csproj", "{1DF17715-B7D7-4949-B5BA-64037F46ED16}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AR.NextExt.UnitTests", "..\tests\AR.NextExt.UnitTests\AR.NextExt.UnitTests.csproj", "{1DF17715-B7D7-4949-B5BA-64037F46ED16}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetExt.Models", "NetExt.Models\NetExt.Models.csproj", "{DD0872B9-4DD6-4D49-A93C-8C2D35C1A0F7}"
 EndProject

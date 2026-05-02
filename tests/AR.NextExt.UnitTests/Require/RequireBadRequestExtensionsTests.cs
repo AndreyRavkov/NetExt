@@ -2,7 +2,7 @@ using NetExt.Models.Exceptions;
 using NetExt.Require.Extensions;
 using Xunit;
 
-namespace NextExt.UnitTests.Require;
+namespace AR.NextExt.UnitTests.Require;
 
 public class RequireBadRequestExtensionsTests
 {

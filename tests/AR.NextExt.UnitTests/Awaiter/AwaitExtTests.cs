@@ -1,7 +1,7 @@
 using NetExt.Awaiter;
 using Xunit;
 
-namespace NextExt.UnitTests.Awaiter;
+namespace AR.NextExt.UnitTests.Awaiter;
 
 public class AwaitExtTests
 {

@@ -2,9 +2,9 @@ using NetExt.Models.Exceptions;
 using NetExt.Require.Extensions;
 using Xunit;
 
-namespace NextExt.UnitTests.Require;
+namespace AR.NextExt.UnitTests.Require;
 
-public class RequireNotFoundExtensionsTests
+public class RequireUnauthorizedExtensionsTests
 {
     [Fact]
     public static void ThrowIfNullExtension_NotThrow_Tests()
@@ -12,7 +12,7 @@ public class RequireNotFoundExtensionsTests
         DateTime? dateTime = DateTime.MaxValue;
         try
         {
-            dateTime.ThrowNotFoundIfNullExt();
+            dateTime.ThrowUnauthorizedIfNullExt();
         }
         catch (Exception exception)
         {
@@ -24,9 +24,9 @@ public class RequireNotFoundExtensionsTests
     public static void ThrowIfNullExtension_Tests_1()
     {
         DateTime? dateTime = null;
-        var result = Assert.Throws<NotFoundExceptionExt>(() => dateTime.ThrowNotFoundIfNullExt());
+        var result = Assert.Throws<UnAuthorizationExceptionExt>(() => dateTime.ThrowUnauthorizedIfNullExt());
         
-        Assert.IsType<NotFoundExceptionExt>(result);
+        Assert.IsType<UnAuthorizationExceptionExt>(result);
         Assert.Equal(nameof(dateTime), result.Message);
     }
 }

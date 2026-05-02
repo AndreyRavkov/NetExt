@@ -1,7 +1,7 @@
 using NetExt.Strings;
 using Xunit;
 
-namespace NextExt.UnitTests.Strings;
+namespace AR.NextExt.UnitTests.Strings;
 
 public class StringsTests
 {

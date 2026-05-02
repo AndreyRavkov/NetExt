@@ -1,7 +1,7 @@
 using NetExt.Utils.Collections;
 using Xunit;
 
-namespace NextExt.UnitTests.Utils;
+namespace AR.NextExt.UnitTests.Utils;
 
 public class AsReadOnlyListTests
 {

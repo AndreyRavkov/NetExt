@@ -3,7 +3,7 @@ using NetExt.Models.Enums;
 using NetExt.Models.Exceptions;
 using Xunit;
 
-namespace NextExt.UnitTests.MayBe;
+namespace AR.NextExt.UnitTests.MayBe;
 
 public class MayBeTests
 {

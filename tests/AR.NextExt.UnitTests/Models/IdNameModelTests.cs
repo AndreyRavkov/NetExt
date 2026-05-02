@@ -1,7 +1,7 @@
 using NetExt.Models;
 using Xunit;
 
-namespace NextExt.UnitTests.Models;
+namespace AR.NextExt.UnitTests.Models;
 
 public class IdNameModelTests
 {
