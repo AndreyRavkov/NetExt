@@ -1,34 +1,31 @@
 namespace NetExt.Models;
 
-[Serializable]
-public class IdNameModel<T, TY> : IEqualityComparer<IdNameModel<T, TY>>
+public abstract class IdBaseModel<T, TY> : IEqualityComparer<IdValueModel<T, TY>>
 {
-    public IdNameModel(T id, TY name)
+    protected IdBaseModel(T id, TY value)
     {
         Id = id;
-        Name = name;
+        Value = value;
     }
 
-    public IdNameModel()
+    protected IdBaseModel()
     {
     }
 
     public T Id { get; set; } = default!;
-    public TY Name { get; set; } = default!;
+    protected TY Value { get; set; } = default!;
 
-    public bool Equals(IdNameModel<T, TY>? x, IdNameModel<T, TY>? y)
+    public bool Equals(IdValueModel<T, TY>? x, IdValueModel<T, TY>? y)
     {
         if (x is null && y is null)
         {
             return true;
         }
-
         if (x is null || y is null)
         {
             return false;
         }
-
-        if (x.Id == null && y.Id == null)
+        if (x.Id is null && y.Id is null)
         {
             return true;
         }
@@ -36,7 +33,7 @@ public class IdNameModel<T, TY> : IEqualityComparer<IdNameModel<T, TY>>
         return x.Id!.Equals(y.Id);
     }
 
-    public int GetHashCode(IdNameModel<T, TY> obj)
+    public int GetHashCode(IdValueModel<T, TY> obj)
     {
         return obj.Id?.GetHashCode() ?? 0;
     }
