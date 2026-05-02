@@ -8,8 +8,8 @@ on:
 
 env:
   NUGET_SOURCE: https://api.nuget.org/v3/index.json
-  SOLUTION_PATH: ./src/NetExt.sln
-  TESTS_PROJ_PATH: ./tests/NextExt.UnitTests/NextExt.UnitTests.csproj
+  SOLUTION_PATH: ./src/AR.NetExt.sln
+  TESTS_PROJ_PATH: ./tests/AR.NetExt.UnitTests/AR.NetExt.UnitTests.csproj
 
 permissions:
   contents: write

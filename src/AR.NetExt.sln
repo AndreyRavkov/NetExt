@@ -7,11 +7,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_solutionItems", "_solution
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{7A890C71-1AD5-4CB3-BA2A-1AD511812062}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AR.NextExt.UnitTests", "..\tests\AR.NextExt.UnitTests\AR.NextExt.UnitTests.csproj", "{1DF17715-B7D7-4949-B5BA-64037F46ED16}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AR.NetExt.UnitTests", "..\tests\AR.NetExt.UnitTests\AR.NetExt.UnitTests.csproj", "{1DF17715-B7D7-4949-B5BA-64037F46ED16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetExt.Models", "NetExt.Models\NetExt.Models.csproj", "{DD0872B9-4DD6-4D49-A93C-8C2D35C1A0F7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AR.NetExt.Models", "AR.NetExt.Models\AR.NetExt.Models.csproj", "{DD0872B9-4DD6-4D49-A93C-8C2D35C1A0F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetExt.Awaiter", "NetExt.Awaiter\NetExt.Awaiter.csproj", "{81B0A3F8-C612-4CE2-B704-A17144FAF5FB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AR.NetExt.Awaiter", "AR.NetExt.Awaiter\AR.NetExt.Awaiter.csproj", "{81B0A3F8-C612-4CE2-B704-A17144FAF5FB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{B9FBA5A5-C3E7-4B26-940E-ED9337D4B1B5}"
 	ProjectSection(SolutionItems) = preProject
@@ -20,15 +20,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		..\.github\workflows\build.yml = ..\.github\workflows\build.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetExt.Strings", "NetExt.Strings\NetExt.Strings.csproj", "{282E5955-769B-4F76-A0AE-3C606948E277}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AR.NetExt.Strings", "AR.NetExt.Strings\AR.NetExt.Strings.csproj", "{282E5955-769B-4F76-A0AE-3C606948E277}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetExt.Require", "NetExt.Require\NetExt.Require.csproj", "{0D21A0A5-9624-4BA4-B641-7A927445B73D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AR.NetExt.Require", "AR.NetExt.Require\AR.NetExt.Require.csproj", "{0D21A0A5-9624-4BA4-B641-7A927445B73D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetExt.MayBe", "NetExt.MayBe\NetExt.MayBe.csproj", "{57207DA5-8BD1-448E-B586-5AB7DD5B7AE5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AR.NetExt.MayBe", "AR.NetExt.MayBe\AR.NetExt.MayBe.csproj", "{57207DA5-8BD1-448E-B586-5AB7DD5B7AE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetExt.DateTime", "NetExt.DateTime\NetExt.DateTime.csproj", "{BE216E6E-67A7-47A3-8DDC-33CA0B68ACBC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AR.NetExt.DateTime", "AR.NetExt.DateTime\AR.NetExt.DateTime.csproj", "{BE216E6E-67A7-47A3-8DDC-33CA0B68ACBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetExt.Utils", "NetExt.Utils\NetExt.Utils.csproj", "{2A3519A7-C76D-4765-AD1A-2666CB49A0E3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AR.NetExt.Utils", "AR.NetExt.Utils\AR.NetExt.Utils.csproj", "{2A3519A7-C76D-4765-AD1A-2666CB49A0E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

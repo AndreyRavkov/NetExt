@@ -8,17 +8,17 @@ on:
         required: true
         type: choice
         options:
-          - 'NetExt.Awaiter'
-          - 'NetExt.DateTime'
-          - 'NetExt.MayBe'
-          - 'NetExt.Models'
-          - 'NetExt.Require'
-          - 'NetExt.Strings'
-          - 'NetExt.Utils'
+          - 'AR.NetExt.Awaiter'
+          - 'AR.NetExt.DateTime'
+          - 'AR.NetExt.MayBe'
+          - 'AR.NetExt.Models'
+          - 'AR.NetExt.Require'
+          - 'AR.NetExt.Strings'
+          - 'AR.NetExt.Utils'
 
 env:
   NUGET_SOURCE: https://api.nuget.org/v3/index.json
-  TESTS_PROJ_PATH: ./tests/NextExt.UnitTests/NextExt.UnitTests.csproj
+  TESTS_PROJ_PATH: ./tests/AR.NetExt.UnitTests/AR.NetExt.UnitTests.csproj
 
 permissions:
   contents: write
@@ -59,64 +59,64 @@ jobs:
   NetExt_Awaiter:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
-    if: ${{ inputs.package_name == 'NetExt.Awaiter' }}
+    if: ${{ inputs.package_name == 'AR.NetExt.Awaiter' }}
     secrets:
       NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
     with:
-      project_path: './src/NetExt.Awaiter/NetExt.Awaiter.csproj'
+      project_path: './src/AR.NetExt.Awaiter/AR.NetExt.Awaiter.csproj'
 
   NetExt_DateTime:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
-    if: ${{ inputs.package_name == 'NetExt.DateTime' }}
+    if: ${{ inputs.package_name == 'AR.NetExt.DateTime' }}
     secrets:
       NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
     with:
-      project_path: './src/NetExt.DateTime/NetExt.DateTime.csproj'
+      project_path: './src/AR.NetExt.DateTime/AR.NetExt.DateTime.csproj'
 
   NetExt_MayBe:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
-    if: ${{ inputs.package_name == 'NetExt.MayBe' }}
+    if: ${{ inputs.package_name == 'AR.NetExt.MayBe' }}
     secrets:
       NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
     with:
-      project_path: './src/NetExt.MayBe/NetExt.MayBe.csproj'
+      project_path: './src/AR.NetExt.MayBe/AR.NetExt.MayBe.csproj'
 
   NetExt_Models:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
-    if: ${{ inputs.package_name == 'NetExt.Models' }}
+    if: ${{ inputs.package_name == 'AR.NetExt.Models' }}
     secrets:
       NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
     with:
-      project_path: './src/NetExt.Models/NetExt.Models.csproj'
+      project_path: './src/AR.NetExt.Models/AR.NetExt.Models.csproj'
       
 
   NetExt_Require:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
-    if: ${{ inputs.package_name == 'NetExt.Require' }}
+    if: ${{ inputs.package_name == 'AR.NetExt.Require' }}
     secrets:
       NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
     with:
-      project_path: './src/NetExt.Require/NetExt.Require.csproj'
+      project_path: './src/AR.NetExt.Require/AR.NetExt.Require.csproj'
       
 
   NetExt_Strings:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
-    if: ${{ inputs.package_name == 'NetExt.Strings' }}
+    if: ${{ inputs.package_name == 'AR.NetExt.Strings' }}
     secrets:
       NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
     with:
-      project_path: './src/NetExt.Strings/NetExt.Strings.csproj'
+      project_path: './src/AR.NetExt.Strings/AR.NetExt.Strings.csproj'
   
   NetExt_Utils:
     needs: job-tests
     uses: ./.github/workflows/deploy-package-flow.yml
-    if: ${{ inputs.package_name == 'NetExt.Utils' }}
+    if: ${{ inputs.package_name == 'AR.NetExt.Utils' }}
     secrets:
       NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
     with:
-      project_path: './src/NetExt.Utils/NetExt.Utils.csproj'
+      project_path: './src/AR.NetExt.Utils/AR.NetExt.Utils.csproj'
