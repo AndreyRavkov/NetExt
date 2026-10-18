@@ -3,7 +3,7 @@ using Xunit;
 
 namespace AR.NetExt.UnitTests.Strings;
 
-public class StringsTests
+public class StringsExtensionsTests
 {
     [Theory]
     [InlineData(null, true)]
@@ -29,6 +29,33 @@ public class StringsTests
     {
         var result = input.IsNullOrEmptyExt();
         
+        Assert.Equal(expectedResult, result);
+    }
+
+    [Theory]
+    [InlineData(null, true)]
+    [InlineData("", true)]
+    [InlineData("   ", false)]
+    [InlineData("\r", false)]
+    [InlineData("\n", false)]
+    [InlineData("\r\n", false)]
+    [InlineData("\n\r", false)]
+    [InlineData(" abc", false)]
+    [InlineData("  abc", false)]
+    [InlineData("abc  ", false)]
+    [InlineData("  \r abc  ", false)]
+    [InlineData("  \n abc  ", false)]
+    [InlineData("  abc  \r ", false)]
+    [InlineData("  abc  \n ", false)]
+    [InlineData(" \r abc  \n ", false)]
+    [InlineData(" \n abc  \n ", false)]
+    [InlineData(" \r abc  \r ", false)]
+    [InlineData(" \r\n abc  \r\n ", false)]
+    [InlineData(" \n\r abc  \n\r ", false)]
+    public void IsEmptyExt_Tests(string? input, bool expectedResult)
+    {
+        var result = input.IsEmptyExt();
+
         Assert.Equal(expectedResult, result);
     }
     
@@ -71,7 +98,7 @@ public class StringsTests
     [InlineData(" \n\r abc  \n\r ", false)]
     public void IsNotNullOrEmptyOrWhiteSpaceExt_Tests(string? input, bool expectedResult)
     {
-        var result = input.IsNullOrEmptyOrWhiteSpaceExt();
+        var result = input.IsBlankExt();
         
         Assert.Equal(expectedResult, result);
     }

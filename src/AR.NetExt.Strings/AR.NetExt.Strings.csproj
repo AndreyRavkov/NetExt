@@ -24,6 +24,8 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>icon.png</PackageIcon>
     <PackageReleaseNotes>
+      v2.1.0: Depricate 'IsNullOrEmptyOrWhiteSpaceExt', use 'IsBlankExt' instead;
+              Add new 'IsEmptyExt' - a shoerter alias for 'IsNullOrEmptyExt'
       v2.0.0: Migrate to new namespace and package name
       v1.0.5: Fix typo in `IsNotNullOrEmptyOrWhiteSpaceExt` -> `IsNullOrEmptyOrWhiteSpaceExt` 
       v1.0.4: Remove `TrimExt` extension due to low usage, remove obsolete `IsNullOrVoidExt` extension. Split `IsEmptyExt` extension to `IsNullOrEmptyExt`, `IsNullOrWhiteSpaceExt`, `IsNotNullOrEmptyOrWhiteSpaceExt`
@@ -39,5 +41,4 @@
     <None Include="..\..\LICENSE" Pack="true" PackagePath="\" />
     <None Include="..\..\icon.png" Pack="true" PackagePath="\" />
   </ItemGroup>
-
 </Project>

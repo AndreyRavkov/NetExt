@@ -1,56 +1,71 @@
 using System.Globalization;
-using System.Text;
 
 namespace AR.NetExt.Strings;
 
 public static class StringsExtensions
 {
-    public static bool IsNullOrEmptyExt(this string? str)
+    extension(string? stringValue)
     {
-        return string.IsNullOrEmpty(str);
-    }
-    
-    public static bool IsNullOrWhiteSpaceExt(this string? str)
-    {
-        return string.IsNullOrWhiteSpace(str);
-    }
-    
-    public static bool IsNullOrEmptyOrWhiteSpaceExt(this string? str)
-    {
-        return string.IsNullOrEmpty(str) || string.IsNullOrWhiteSpace(str);
-    }
-    
-    public static bool HasMaxLengthExt(this string? str,
-                                 int maxLength, 
-                                 Action? onNegativeAction = null)
-    {
-        str = str?.Trim();
-        var result = (str?.Length ?? 0) <= maxLength;
-        if (str is null || !result)
+        public bool IsNullOrEmptyExt()
         {
-            onNegativeAction?.Invoke();
-            return false;
+            return string.IsNullOrEmpty(stringValue);
         }
-        
-        return result;
+
+        /// <summary>
+        /// A shorter alias for <see cref="IsNullOrEmptyExt" />
+        /// </summary>
+        /// <returns></returns>
+        public bool IsEmptyExt()
+        {
+            return string.IsNullOrEmpty(stringValue);
+        }
+
+        public bool IsNullOrWhiteSpaceExt()
+        {
+            return string.IsNullOrWhiteSpace(stringValue);
+        }
+
+        /// <summary>
+        /// A shorter alias for <see cref="IsNullOrWhiteSpaceExt" />
+        /// </summary>
+        /// <returns>bool result</returns>
+        public bool IsBlankExt()
+        {
+            return string.IsNullOrWhiteSpace(stringValue);
+        }
+
+        public bool HasMaxLengthExt(
+            int maxLength,
+            Action? onNegativeAction = null)
+        {
+            stringValue = stringValue?.Trim();
+            var result = (stringValue?.Length ?? 0) <= maxLength;
+            if (stringValue is null || !result)
+            {
+                onNegativeAction?.Invoke();
+                return false;
+            }
+
+            return result;
+        }
     }
-    
+
     /// <summary>
     /// Convert object to string with CultureInfo.InvariantCulture as IFormatProvider
     /// </summary>
-    /// <param name="str"></param>
+    /// <param name="stringValue"></param>
     /// <param name="provider"></param>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    public static string? ToStringExt<T>(this T? str, IFormatProvider? provider = null)
+    public static string? ToStringExt<T>(this T? stringValue, IFormatProvider? provider = null)
     {
         provider ??= CultureInfo.InvariantCulture;
-        if (str is null)
+        if (stringValue is null)
         {
             return null;
         }
 
-        return str switch
+        return stringValue switch
         {
             string strValue => strValue.ToString(provider),
             int intValue => intValue.ToString(provider),
@@ -71,57 +86,8 @@ public static class StringsExtensions
             nint nintValue => nintValue.ToString(provider),
             DateOnly dateOnly => dateOnly.ToString(provider),
             #endif
-            _ => str.ToString()
+            _ => stringValue.ToString(),
         };
-    }
-
-    /// <summary>
-    /// Replace keys to value in the current string
-    /// </summary>
-    /// <param name="str">source string with keys</param>
-    /// <param name="replacements">dictionary with key-value</param>
-    /// <returns>string</returns>
-    public static string ReplaceExt(this string? str, Dictionary<string, string> replacements)
-    {
-        if (str.IsNullOrEmptyExt())
-        {
-            return string.Empty;
-        }
-
-        var result = new StringBuilder(str);
-        foreach (var replacement in replacements)
-        {
-            if (!replacement.Key.IsNullOrEmptyExt())
-            {
-                result = result.Replace(replacement.Key, replacement.Value);
-            }
-        }
-        
-        return result.ToString();
-    }
-    
-    /// <summary>
-    /// Convert string to Base64 string
-    /// </summary>
-    /// <param name="str">source string value</param>
-    /// <param name="encoding">encoding type, the method will use System.Text.Encoding.UTF8 as default</param>
-    /// <returns>string</returns>
-    public static string ToBase64Ext(this string str, Encoding? encoding = null)
-    {
-        encoding ??= Encoding.UTF8;
-        return str.IsNullOrEmptyExt() ? str : Convert.ToBase64String(encoding.GetBytes(str));
-    }
-    
-    /// <summary>
-    /// Convert base64 string to string
-    /// </summary>
-    /// <param name="str">source string value</param>
-    /// <param name="encoding">encoding type, the method will use System.Text.Encoding.UTF8 as default</param>
-    /// <returns></returns>
-    public static string FromBase64Ext(this string str, Encoding? encoding = null)
-    {
-        encoding ??= Encoding.UTF8;
-        return str.IsNullOrEmptyExt() ? str : encoding.GetString(Convert.FromBase64String(str));
     }
 
     /// <summary>
@@ -138,51 +104,16 @@ public static class StringsExtensions
     /// <summary>
     /// Get only digits from string
     /// </summary>
-    /// <param name="str">source string value</param>
+    /// <param name="stringValue">source string value</param>
     /// <returns>int?</returns>
-    public static int? GetOnlyDigitsExt(this string str)
+    public static int? GetOnlyDigitsExt(this string stringValue)
     {
-        if (str.IsNullOrEmptyExt())
+        if (stringValue.IsNullOrEmptyExt())
         {
             return null;
         }
 
-        var digits = new string(str.Where(char.IsDigit).ToArray());
+        var digits = new string(stringValue.Where(char.IsDigit).ToArray());
         return int.TryParse(digits, out var result) ? result : null;
-    }
-    
-    /// <summary>
-    /// Replace chars in a source string
-    /// </summary>
-    /// <param name="str">source string</param>
-    /// <param name="chars">chars to replace</param>
-    /// <param name="replaceSymbol">replace to symbol</param>
-    /// <returns>string</returns>
-    public static string ReplaceCharsExt(this string? str, char[] chars, string replaceSymbol = "")
-    {
-        if (str.IsNullOrEmptyExt())
-        {
-            return str ?? string.Empty;
-        }
-
-        var result = new StringBuilder(str);
-        foreach (var c in chars)
-        {
-            result.Replace(c.ToString(), replaceSymbol);
-        }
-
-        return result.ToString();
-    }
-    
-    /// <summary>
-    /// Replace chars in a source string
-    /// </summary>
-    /// <param name="str">source string</param>
-    /// <param name="chars">string of chars to replace</param>
-    /// <param name="replaceSymbol">replace to symbol</param>
-    /// <returns>string</returns>
-    public static string ReplaceCharsExt(this string? str, string chars, string replaceSymbol = "")
-    {
-        return ReplaceCharsExt(str, chars.ToCharArray(), replaceSymbol);
     }
 }

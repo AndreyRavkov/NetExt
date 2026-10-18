@@ -9,6 +9,8 @@ indent_size = 2
 
 [*.cs]
 indent_size = 4
+insert_final_newline = false
+trim_trailing_whitespace = true
 csharp_style_namespace_declarations = file_scoped:error
 # IDE0063: Use simple 'using' statement
 csharp_prefer_simple_using_statement = true:suggestion
