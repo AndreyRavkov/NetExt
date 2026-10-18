@@ -176,11 +176,10 @@ Example Usages:
 using NetExt.Strings;
 
 // extensions to not write string.<something>
-" string ".IsNullOrEmptyExt(); -> string.IsNullOrEmpty(str);
-
-"   ".IsNullOrWhiteSpaceExt(); -> string.IsNullOrWhiteSpace(str);
-
-" string ".IsNullOrEmptyOrWhiteSpaceExt(); -> string.IsNullOrEmpty(str) || string.IsNullOrWhiteSpace(str);
+" string ".IsNullOrEmptyExt() -> string.IsNullOrEmpty(str);
+" string ".IsEmptyExt() -> string.IsNullOrEmpty(str);
+"\t  \n ".IsNullOrWhiteSpaceExt() -> string.IsNullOrWhiteSpace(str);
+"\t  \n ".IsBlankExt() -> string.IsNullOrWhiteSpace(str);
 
 // Replace keys in a string
 var replacements = new Dictionary<string, string> { { "World", "Universe" } };
